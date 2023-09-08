@@ -8,7 +8,7 @@
 // Can duplicate previous code to continue editing
 
 // Challenge: 
-// 1. Below title, display the total amount of the items (Hint: split)
+// 1. When listing, below title, display the total amount of the items (Hint: split)
 // 2. For each item, add the number 1, 2, 3, 4,.. in front of them.
 
 

@@ -12,9 +12,15 @@ function write(input) {
 
 function read() {
   const content = fs.readFileSync(filePath)
+  const text = content.toString()
+  const list = text.trim().split("\n")
+  
 
   printHeader()
-  console.log(content.toString())
+  console.log(`Total todos: ${list.length}\n`)
+  for (let i = 0; i < list.length; i++) {
+    console.log(`${i+1}. ${list[i]}`)
+  }
 }
 
 function clear() {
