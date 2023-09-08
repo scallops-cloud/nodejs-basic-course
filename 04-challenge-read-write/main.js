@@ -10,11 +10,13 @@ if (option === 'w') {
   fs.appendFileSync(filePath, input + "\n")
   console.log('appended:', input)
 }
+else if (option === 'r') {
+  const content = fs.readFileSync(filePath)
+  console.log('file content:', content.toString())
+}
+else if (option === 'c') {
+  fs.writeFileSync(filePath, "")
+}
 else {
   console.log('invalid option')
 }
-
-// Challenge: 
-// 1. Add "read" option
-// 2. Add "clear" option
-
