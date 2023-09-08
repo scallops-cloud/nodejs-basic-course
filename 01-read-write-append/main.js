@@ -6,4 +6,4 @@ fs.writeFileSync(filePath, "Hihi")
 fs.appendFileSync(filePath, "\nsecond line")
 
 const content = fs.readFileSync(filePath)
-console.log(content.toString())
+console.log("content of file:", content.toString())
