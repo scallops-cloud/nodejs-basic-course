@@ -2,22 +2,22 @@ const fs = require("fs");
 
 const filePath = "data.txt";
 
-const option = process.argv[2]
-const input = process.argv[3]
-
-
-if (option === 'w') {
+function write(input) {
   fs.appendFileSync(filePath, input + "\n")
   console.log('appended:', input)
 }
-else if (option === 'r') {
+
+function read() {
   const content = fs.readFileSync(filePath)
-  console.log('file content:', content.toString())
+  console.log('file content:')
+  console.log(content.toString())
 }
-else if (option === 'c') {
+
+function clear() {
   fs.writeFileSync(filePath, "")
   console.log('the file has been clear')
 }
-else {
-  console.log('invalid option')
+
+module.exports = {
+  write, read, clear
 }
