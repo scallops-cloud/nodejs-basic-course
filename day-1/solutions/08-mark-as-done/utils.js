@@ -38,6 +38,11 @@ function markDone(itemNumber) {
   const text = content.toString()
   const list = text.trim().split("\n")
 
+  if (itemNumber < 0 || itemNumber > list.length) {
+    console.log("invalid item number")
+    return
+  }
+
   // 2. find the line from itemNumber
   // 3. remove that line
   const doneItem = list.splice(itemNumber - 1, 1)
