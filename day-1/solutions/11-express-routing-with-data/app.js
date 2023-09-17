@@ -45,12 +45,26 @@ const userDatabase = {
 
 app.get("/users/:userId", (req, res) => {
   const userId = req.params.userId;
-  res.send(`User ID: ${userId}`);
+  const name = userDatabase[userId];
+
+  if (!name) {
+    res.send(`Error User ID ${userId} not found`);
+    return;
+  }
+
+  res.send(`User ID: ${userId} (Name: ${name})`);
 });
 
 app.post("/users/:userId", (req, res) => {
   const userId = req.params.userId;
   const name = req.body.name;
+
+  if (!userDatabase[userId]) {
+    res.send(`Error User ID ${userId} not found`);
+    return;
+  }
+
+  userDatabase[userId] = name;
 
   res.send(`User ID: ${userId}, name has been updated to ${name}`);
 });
