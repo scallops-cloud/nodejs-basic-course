@@ -62,6 +62,20 @@ app.post("/users/:userId", (req, res) => {
   res.send(`User ID: ${userId}, name has been updated to ${name}`);
 });
 
+// Challenge Version
+
+// app.get("/users/:userId(\\d+)", (req, res) => {
+//   const userId = req.params.userId;
+//   res.send(`User ID: ${userId}`);
+// });
+
+// app.post("/users/:userId(\\d+)", (req, res) => {
+//   const userId = req.params.userId;
+//   const name = req.body.name;
+
+//   res.send(`User ID: ${userId}, name has been updated to ${name}`);
+// });
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
