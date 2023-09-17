@@ -17,7 +17,7 @@
  * ## Hint:
  * - https://expressjs.com/en/starter/installing.html
  * - https://expressjs.com/en/starter/hello-world.html
- * - https://expressjs.com/en/4x/api.html#res.json
+ * - https://expressjs.com/en/4x/api.html#res
  */
 
 const express = require("express");
