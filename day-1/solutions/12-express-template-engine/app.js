@@ -23,7 +23,7 @@
  *    - Once submit, the data is updated, and redirect users back to the detail page with updated data.
  *
  * ## Challenges:
- * 1. If the name has symbol, don't update data and display an error on top on the form
+ * 1. If the name has symbol, don't update data and display a error under the form with red color
  *    - Hint: Use query params to indicate if there is an error
  *
  * ## Hint:
@@ -33,6 +33,8 @@
  */
 
 const express = require("express");
+const { isValidName } = require("./utils");
+
 const app = express();
 const port = 8000;
 
@@ -63,7 +65,7 @@ app.get("/users/:userId", (req, res) => {
     return;
   }
 
-  res.render("user-detail.ejs", { id: userId, name });
+  res.render("user-detail.ejs", { id: userId, name, error: req.query.error });
 });
 
 app.post("/users/:userId", (req, res) => {
@@ -72,6 +74,11 @@ app.post("/users/:userId", (req, res) => {
 
   if (!userDatabase[userId]) {
     res.send(`Error User ID ${userId} not found`);
+    return;
+  }
+
+  if (!isValidName(name)) {
+    res.redirect(`/users/${userId}?error=invalid name`);
     return;
   }
 
