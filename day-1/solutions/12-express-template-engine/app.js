@@ -46,6 +46,14 @@ const userDatabase = {
   22: "Mano",
 };
 
+app.get("/users", (req, res) => {
+  const users = Object.keys(userDatabase).map((id) => {
+    return { id, name: userDatabase[id] };
+  });
+
+  res.render("user-list.ejs", { users });
+});
+
 app.get("/users/:userId", (req, res) => {
   const userId = req.params.userId;
   const name = userDatabase[userId];
@@ -55,7 +63,7 @@ app.get("/users/:userId", (req, res) => {
     return;
   }
 
-  res.send(`User ID: ${userId} (Name: ${name})`);
+  res.render("user-detail.ejs", { id: userId, name });
 });
 
 app.post("/users/:userId", (req, res) => {
@@ -69,7 +77,7 @@ app.post("/users/:userId", (req, res) => {
 
   userDatabase[userId] = name;
 
-  res.send(`User ID: ${userId}, name has been updated to ${name}`);
+  res.redirect(`/users/${userId}`);
 });
 
 app.listen(port, () => {
