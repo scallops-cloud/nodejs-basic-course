@@ -5,7 +5,10 @@
  *
  * ## Specs:
  * 1. Create 2 more folders: models, controllers.
+ *
  * 2. Separate the logics into 3 folders accordingly.
+ * - Hint: controller functions usually use this naming: list, get, update, create, etc.
+ *
  * 3. Test that all the functionalities are the same.
  *
  * ## Challenges:
@@ -17,7 +20,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const morgan = require("morgan");
-const { read, markDone, addItem } = require("./utils");
+const todoController = require("./controllers/todoController");
 
 const app = express();
 const port = 8000;
@@ -28,32 +31,9 @@ app.use(express.static("public"));
 app.use(helmet());
 app.use(morgan("dev"));
 
-app.get("/todos", (req, res) => {
-  const errorCode = req.query.errorCode;
-
-  const todos = read();
-
-  res.render("todo-list.ejs", { todos, errorCode });
-});
-
-app.post("/todos", (req, res) => {
-  const title = req.body.title;
-
-  const errorCode = addItem(title);
-
-  if (errorCode) {
-    res.redirect(`/todos?errorCode=${errorCode}`);
-    return;
-  }
-
-  res.redirect("/todos");
-});
-
-app.post("/todos/:todoIndex/done", (req, res) => {
-  markDone(req.params.todoIndex);
-
-  res.redirect("/todos");
-});
+app.get("/todos", todoController.listTodos);
+app.post("/todos", todoController.createTodo);
+app.post("/todos/:todoIndex/done", todoController.updateTodoAsDone);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
