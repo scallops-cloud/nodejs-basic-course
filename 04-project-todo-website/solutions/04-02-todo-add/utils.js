@@ -13,6 +13,10 @@ function addItem(input) {
     return "too_long";
   }
 
+  if (input.length < 5) {
+    return "too_short";
+  }
+
   fs.appendFileSync(filePath, input + "\n");
 
   return null;

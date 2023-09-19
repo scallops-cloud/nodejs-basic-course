@@ -27,9 +27,13 @@
     <button type="submit">Add</button>
   </form>
 
-  <div>
+  <div class="error-message">
     <% if (errorCode === "too_long") { %>
       The todo title must not exceed 30 characters.
+    <% } else if (errorCode === "too_short") { %>
+      The todo title must not shorter than 5 characters.
+    <% } else if (errorCode) { %>
+      Invalid todo title
     <% } %>
   </div>
 </body>

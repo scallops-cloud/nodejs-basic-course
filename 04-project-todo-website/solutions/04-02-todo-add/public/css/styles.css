@@ -9,3 +9,7 @@
 .add-form {
   margin-top: 12px;
 }
+
+.error-message {
+  color: red;
+}

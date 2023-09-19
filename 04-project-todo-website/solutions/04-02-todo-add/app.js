@@ -27,7 +27,9 @@
  * 3. If the todo length is shorter than 5 characters, return error code "too_short"
  *    - Display the understandable error message to the users.
  *
- * 4. Make the todo more beautiful with CSS and images.
+ * 4. If the error code is unknown, display error message "Invalid todo title".
+ *
+ * 5. Make the todo more beautiful with CSS and images.
  *
  */
 
