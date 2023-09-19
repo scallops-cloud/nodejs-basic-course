@@ -1,10 +1,18 @@
+const moment = require("moment");
 const { list, addItem, markDone } = require("../models/todo");
 
 const listTodos = (req, res) => {
   const errorCode = req.query.errorCode;
   const todos = list();
 
-  res.render("todo-list.ejs", { todos, errorCode });
+  const formattedTodos = todos.map((todo) => {
+    return {
+      ...todo,
+      formattedCreatedAt: moment(todo.createdAt).fromNow(),
+    };
+  });
+
+  res.render("todo-list.ejs", { todos: formattedTodos, errorCode });
 };
 
 const createTodo = (req, res) => {

@@ -16,7 +16,7 @@
         <form action="/todos/<%= todo.id %>/done" method="post" class="done-button">
           <button>Done</button>
         </form>
-        <%= todo.title %> - <%= todo.createdAt %>
+        <%= todo.title %> - <%= todo.formattedCreatedAt %>
       </li>
       
     <% }) %>
