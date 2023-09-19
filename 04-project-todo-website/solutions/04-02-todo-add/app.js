@@ -26,12 +26,12 @@
  *
  * 3. Question: Where should the error check logic is? app.js or utils.js?
  *
- * 3. If the todo length is shorter than 5 characters, return error code "too_short"
+ * 4. If the todo length is shorter than 5 characters, return error code "too_short"
  *    - Display the understandable error message to the users.
  *
- * 4. If the error code is unknown, display error message "Invalid todo title".
+ * 5. If the error code is unknown, display error message "Invalid todo title".
  *
- * 5. Make the todo more beautiful with CSS and images.
+ * 6. Make the todo more beautiful with CSS and images.
  *
  */
 
