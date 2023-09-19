@@ -1,33 +1,31 @@
 /**
- * # Express.js Request Logging
+ * # Express.js More Middlewares
  *
- * Learn to write the middleware to log the request
+ * Learn to use open-sourced middlewares in the project for better production app
  *
  * ## Specs:
- * 1. Log each user request to the console.
- *    - Current time
- *    - request method
- *    - request url
+ * 1. Implement "morgan" middleware
+ *    - See: https://expressjs.com/en/resources/middleware/morgan.html
+ *    - Try the different parameters for morgan(..) to see the differences.
+ *    - Question: What is the benefit of using morgan?
  *
- * 2. Separate the logging middleware to the "middlewares" folder
+ * 2. Implement "helmet" middleware
+ *    - See: https://helmetjs.github.io/
+ *    - Question: What is the benefit of using helmet?
  *
- * ## Hint:
- * - https://expressjs.com/en/guide/using-middleware.html
+ * ## Challenges:
+ * 1. Explore more existings useful middlewares to try.
+ * 2. Question: in which case we need to write our own middlewares?
+ * 3. Question: How order of the using different middlewares makes a difference?
  *
- * ### Challenges:
- * 1. Log the status code from the response
- * - Hint: Try to get the output which is not 200 to see if it is correct.
- *
- * 2. Log the duration spent in app processing before respond.
- * - Hint: Try to delay the respond with setTimeout to see if it is correct.
- *
- * 3. Question: Why logging status code and duration is different from others?
- *
+ * ## Read More:
+ * - What is XSS Attack? https://www.youtube.com/watch?v=jL8GoRDdUEk
  */
 
 const express = require("express");
 const { isValidName } = require("./utils");
-const loggingMiddleware = require("./middlewares/loggingMiddleware");
+const morgan = require("morgan");
+const helmet = require("helmet");
 
 const app = express();
 const port = 8000;
@@ -36,7 +34,8 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static("public"));
 
-app.use(loggingMiddleware);
+app.use(morgan("dev"));
+app.use(helmet());
 
 // user database variable here:
 const userDatabase = {
