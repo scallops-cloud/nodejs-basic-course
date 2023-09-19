@@ -3,11 +3,19 @@ const fs = require("fs");
 const filePath = "data.txt";
 const doneFilePath = "done.txt";
 
-function write(input) {
+/**
+ * Add new todo item.
+ * Returns errorCode if error, null if successful.
+ * @param {string} input - todo title
+ */
+function addItem(input) {
+  if (input.length > 30) {
+    return "too_long";
+  }
+
   fs.appendFileSync(filePath, input + "\n");
 
-  printHeader();
-  console.log("appended:", input);
+  return null;
 }
 
 function read() {
@@ -53,7 +61,7 @@ function markDone(itemNumber) {
 }
 
 module.exports = {
-  write,
+  addItem,
   read,
   clear,
   markDone,

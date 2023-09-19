@@ -22,6 +22,8 @@
  *
  * 2. Question: Why we use "error code" instead of "error message" in this exercise?
  *
+ * 3. Question: Where should the error check logic is? app.js or utils.js?
+ *
  * 3. If the todo length is shorter than 5 characters, return error code "too_short"
  *    - Display the understandable error message to the users.
  *
@@ -30,7 +32,7 @@
  */
 
 const express = require("express");
-const { read, markDone } = require("./utils");
+const { read, markDone, addItem } = require("./utils");
 
 const app = express();
 const port = 8000;
@@ -40,9 +42,23 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use(express.static("public"));
 
 app.get("/todos", (req, res) => {
+  const errorCode = req.query.errorCode;
+
   const todos = read();
 
-  res.render("todo-list.ejs", { todos });
+  res.render("todo-list.ejs", { todos, errorCode });
+});
+
+app.post("/todos", (req, res) => {
+  const title = req.body.title;
+
+  const errorCode = addItem(title);
+
+  if (errorCode) {
+    res.redirect(`/todos?errorCode=${errorCode}`);
+  }
+
+  res.redirect("/todos");
 });
 
 app.post("/todos/:todoIndex/done", (req, res) => {
