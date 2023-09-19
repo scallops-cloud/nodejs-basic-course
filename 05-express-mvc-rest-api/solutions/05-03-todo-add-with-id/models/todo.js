@@ -1,8 +1,3 @@
-const fs = require("fs");
-
-const filePath = "data.txt";
-const doneFilePath = "done.txt";
-
 // "id", "title", "description" and "createdAt" for each todo
 const todoDatabase = [
   {
@@ -20,22 +15,30 @@ const todoDatabase = [
     isDone: false,
   },
 ];
+let nextTodoId = 16;
 
 /**
  * Add new todo item.
  * Returns errorCode if error, null if successful.
  * @param {string} input - todo title
  */
-function addItem(input) {
-  if (input.length > 30) {
+function addItem(title, description) {
+  if (title.length > 30) {
     return "too_long";
   }
 
-  if (input.length < 5) {
+  if (title.length < 5) {
     return "too_short";
   }
 
-  fs.appendFileSync(filePath, input + "\n");
+  todoDatabase.push({
+    id: nextTodoId,
+    title,
+    description,
+    createdAt: new Date(),
+  });
+
+  nextTodoId++;
 
   return null;
 }

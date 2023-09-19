@@ -16,7 +16,7 @@
         <form action="/todos/<%= todo.id %>/done" method="post" class="done-button">
           <button>Done</button>
         </form>
-        <%= todo.title %> - <%= todo.formattedCreatedAt %>
+        <%= todo.id %>: <%= todo.title %> <span class="todo-timestamp"><%= todo.formattedCreatedAt %></span>
       </li>
       
     <% }) %>
@@ -24,6 +24,7 @@
 
   <form action="/todos" method="post" class="add-form">
     <input type="text" name="title" placeholder="todo item here"/>
+    <input type="text" name="description" placeholder="description here"/>
     <button type="submit">Add</button>
   </form>
 

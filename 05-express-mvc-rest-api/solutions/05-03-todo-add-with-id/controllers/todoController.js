@@ -17,7 +17,8 @@ const listTodos = (req, res) => {
 
 const createTodo = (req, res) => {
   const title = req.body.title;
-  const errorCode = addItem(title);
+  const description = req.body.description;
+  const errorCode = addItem(title, description);
 
   if (errorCode) {
     res.redirect(`/todos?errorCode=${errorCode}`);
