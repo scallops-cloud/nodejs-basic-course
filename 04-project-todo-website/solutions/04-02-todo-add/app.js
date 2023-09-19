@@ -17,6 +17,8 @@
  *    - In the todo list page, convert error code "too_long" to the proper error message,
  *      ex. "The todo title must not exceed 30 characters."
  *
+ * 3. Add request logging and security enhancement in the middlewares
+ *
  * ## Challenges:
  * 1. Question: Why we use POST instead of GET to create a todo?
  *
@@ -34,6 +36,8 @@
  */
 
 const express = require("express");
+const helmet = require("helmet");
+const morgan = require("morgan");
 const { read, markDone, addItem } = require("./utils");
 
 const app = express();
@@ -42,6 +46,8 @@ const port = 8000;
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static("public"));
+app.use(helmet());
+app.use(morgan("dev"));
 
 app.get("/todos", (req, res) => {
   const errorCode = req.query.errorCode;
@@ -58,6 +64,7 @@ app.post("/todos", (req, res) => {
 
   if (errorCode) {
     res.redirect(`/todos?errorCode=${errorCode}`);
+    return;
   }
 
   res.redirect("/todos");
