@@ -1,0 +1,21 @@
+.done-button {
+  display: inline-block;
+}
+
+.todo-item {
+  margin-top: 4px;
+}
+
+.add-form {
+  margin-top: 12px;
+}
+
+.error-message {
+  color: red;
+}
+
+.todo-timestamp {
+  color: gray;
+  font-size: 12px;
+  margin-left: 6px;
+}

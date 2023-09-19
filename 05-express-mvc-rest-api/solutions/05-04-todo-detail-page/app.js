@@ -1,19 +1,20 @@
 /**
- * # Express.js Todo Website - Adding with new model
+ * # Express.js Todo Website - Todo Detail Page
  *
  * Implement the todo adding with the new model
  *
  * ## Exercise:
- * 1. Update todo add to work with the new model.
- *    - The existing checking logic must remain the same.
- *    - Hint: We need to manually assign the ID to the new todo item.
+ * 1. Create a new function for todo model to get a single todo.
  *
- * 2. Add More optional field for todo description.
+ * 2. Create a new route and controller for getting todo details at "http://localhost:8000/todos/:id"
+ * - Returns the todo id for a sample data.
+ *
+ * 3. Create new view for todo detail:
+ * - For the title, display: "Todo Detail".
+ * - For the below information, display: "ID", "Title", "Description" and "Created At".
  *
  * ## Challenges:
- * 1. Question: What is the proper ID to assign to the todo?
- * 2. Ensure that the ID won't be duplicate with existing todo IDs.
- * 3. Return error if the description is longer than 50 characters.
+ * 1. Also format the Created At in detail view to be more readable.
  */
 
 const express = require("express");
