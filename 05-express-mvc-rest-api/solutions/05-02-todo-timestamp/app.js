@@ -1,5 +1,5 @@
 /**
- * # Express.js Todo Website - MVC
+ * # Express.js Todo Website - Timestamp & new model
  *
  * Add more detail to the todo item by updating whole model, view, controller
  *

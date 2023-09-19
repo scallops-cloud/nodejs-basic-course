@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  
+  <title>Todo App</title>
+</head>
+<body>
+  <h1 class="page-title">Todo App</h1>
+  <ol>
+    <% todos.forEach((todo) => { %>
+      
+      <li class="todo-item">
+        <form action="/todos/<%= todo.id %>/done" method="post" class="done-button">
+          <button>Done</button>
+        </form>
+        <%= todo.title %> - <%= todo.formattedCreatedAt %>
+      </li>
+      
+    <% }) %>
+  </ul>
+
+  <form action="/todos" method="post" class="add-form">
+    <input type="text" name="title" placeholder="todo item here"/>
+    <button type="submit">Add</button>
+  </form>
+
+  <div class="error-message">
+    <% if (errorCode === "too_long") { %>
+      The todo title must not exceed 30 characters.
+    <% } else if (errorCode === "too_short") { %>
+      The todo title must not shorter than 5 characters.
+    <% } else if (errorCode) { %>
+      Invalid todo title
+    <% } %>
+  </div>
+</body>
+</html>
