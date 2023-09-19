@@ -9,17 +9,17 @@
  *
  * 2. Update the Todo List page to work with the new todo model.
  *
- * 3. Create new route and controller for getting todo details at "http://localhost:8000/todos/:id"
- *    - Returns the todo id for a sample data
- *
- * 4. Create new view for todo detail:
- *    - For the title, display: "Todo Detail"
- *    - For the below information, display: "ID", "Title", "Description" and "Created At"
- *
+ * 3. Update the mark done to work.
+ *    - Hint: use the todo id to reference to the correct todo.
+ *    - Hint: add new todo property "isDone" to mark it as done.
+
+ * 4. Display the Created At after the todo title
+ * 
  * ## Challenges:
- * 1. Question: Can we still implement the todo detail without "ID"?
- * 2. Display Todo ID instead of running number in the Todo List Page.
- * 3. Order the todo ID by Created At, from new to old.
+ * 1. Why we replace "index" with Todo "ID" in the view?
+ * 2. Question: Can we still implement the todo detail without "ID"?
+ * 3. Format the created time to be more readable
+ * 4. Order the todos from new to old
  */
 
 const express = require("express");

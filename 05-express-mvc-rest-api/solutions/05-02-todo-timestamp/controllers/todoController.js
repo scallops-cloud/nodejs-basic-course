@@ -1,8 +1,8 @@
-const { read, addItem, markDone } = require("../models/todo");
+const { list, addItem, markDone } = require("../models/todo");
 
 const listTodos = (req, res) => {
   const errorCode = req.query.errorCode;
-  const todos = read();
+  const todos = list();
 
   res.render("todo-list.ejs", { todos, errorCode });
 };

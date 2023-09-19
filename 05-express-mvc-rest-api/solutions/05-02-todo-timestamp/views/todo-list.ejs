@@ -10,13 +10,13 @@
 <body>
   <h1 class="page-title">Todo App</h1>
   <ol>
-    <% todos.forEach((todo, index) => { %>
+    <% todos.forEach((todo) => { %>
       
       <li class="todo-item">
-        <form action="/todos/<%= index %>/done" method="post" class="done-button">
+        <form action="/todos/<%= todo.id %>/done" method="post" class="done-button">
           <button>Done</button>
         </form>
-        <%= todo %>
+        <%= todo.title %> - <%= todo.createdAt %>
       </li>
       
     <% }) %>
