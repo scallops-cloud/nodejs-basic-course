@@ -17,6 +17,17 @@ const todoDatabase = [
 ];
 let nextTodoId = 16;
 
+function find(todoId) {
+  const todoIdNum = parseInt(todoId, 10);
+  const todo = todoDatabase.find((todo) => todo.id === todoIdNum);
+
+  if (!todo) {
+    throw new Error(`${todoId} is not found`);
+  }
+
+  return todo;
+}
+
 /**
  * Add new todo item.
  * Returns errorCode if error, null if successful.
@@ -48,13 +59,7 @@ function list() {
 }
 
 function markDone(todoId) {
-  const todoIdNum = parseInt(todoId, 10);
-  const todo = todoDatabase.find((todo) => todo.id === todoIdNum);
-
-  if (!todo) {
-    throw new Error(`${todoId} is not found`);
-  }
-
+  const todo = find(todoId);
   todo.isDone = true;
 }
 
@@ -62,4 +67,5 @@ module.exports = {
   list,
   addItem,
   markDone,
+  find,
 };

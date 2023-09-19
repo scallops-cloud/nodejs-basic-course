@@ -1,5 +1,12 @@
 const moment = require("moment");
-const { list, addItem, markDone } = require("../models/todo");
+const { find, list, addItem, markDone } = require("../models/todo");
+
+const findTodo = (req, res) => {
+  const todoId = req.params.todoId;
+  const todo = find(todoId);
+
+  res.render("todo-detail.ejs", { todo });
+};
 
 const listTodos = (req, res) => {
   const errorCode = req.query.errorCode;
@@ -33,4 +40,4 @@ const updateTodoAsDone = (req, res) => {
   res.redirect("/todos");
 };
 
-module.exports = { listTodos, createTodo, updateTodoAsDone };
+module.exports = { findTodo, listTodos, createTodo, updateTodoAsDone };

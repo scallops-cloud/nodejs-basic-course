@@ -16,7 +16,10 @@
         <form action="/todos/<%= todo.id %>/done" method="post" class="done-button">
           <button>Done</button>
         </form>
-        <%= todo.id %>: <%= todo.title %> <span class="todo-timestamp"><%= todo.formattedCreatedAt %></span>
+        <a href="/todos/<%= todo.id %>">
+          <%= todo.id %>: <%= todo.title %> 
+        </a>
+        <span class="todo-timestamp"><%= todo.formattedCreatedAt %></span>
       </li>
       
     <% }) %>

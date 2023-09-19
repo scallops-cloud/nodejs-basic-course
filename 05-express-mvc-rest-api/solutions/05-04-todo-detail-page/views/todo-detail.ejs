@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/styles.css">
+  
+  <title>Todo Detail</title>
+</head>
+<body>
+  <h1 class="page-title">Todo Detail</h1>
+  <a href="/todos">
+    Back to Todo List
+  </a>
+  <ul>
+      <li class="todo-item">
+        ID: <%= todo.id %>
+      </li>
+      <li>
+        Title: <%= todo.title %>
+      </li>
+      <li>
+        Description: <%= todo.description %>
+      </li>
+      <li>
+        Created At: <%= todo.createdAt %>
+      </li>
+  </ul>
+</body>
+</html>
