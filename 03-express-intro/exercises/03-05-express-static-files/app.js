@@ -1,15 +1,11 @@
 const express = require("express");
 const { isValidName } = require("./utils");
-const loggingMiddleware = require("./middlewares/loggingMiddleware");
 
 const app = express();
 const port = 8000;
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(express.static("public"));
-
-app.use(loggingMiddleware);
 
 // user database variable here:
 const userDatabase = {
@@ -26,18 +22,12 @@ app.get("/users", (req, res) => {
   res.render("user-list.ejs", { users });
 });
 
-app.get("/test", (req, res) => {
-  setTimeout(() => {
-    res.send("done");
-  }, 1200);
-});
-
 app.get("/users/:userId", (req, res) => {
   const userId = req.params.userId;
   const name = userDatabase[userId];
 
   if (!name) {
-    res.status(404).send(`Error User ID ${userId} not found`);
+    res.send(`Error User ID ${userId} not found`);
     return;
   }
 
@@ -49,7 +39,7 @@ app.post("/users/:userId", (req, res) => {
   const name = req.body.name;
 
   if (!userDatabase[userId]) {
-    res.status(404).send(`Error User ID ${userId} not found`);
+    res.send(`Error User ID ${userId} not found`);
     return;
   }
 
