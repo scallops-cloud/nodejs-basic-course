@@ -21,3 +21,7 @@
    - Ex. `This is the sentence`
 
 2. Make the new input text go into the next line.
+
+## Link to slide:
+
+https://snappify.com/view/2e732ca7-cf84-437a-ba03-103e3b51ca48

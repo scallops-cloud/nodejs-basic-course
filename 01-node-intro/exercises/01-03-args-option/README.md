@@ -15,3 +15,7 @@
 ## Challenge:
 
 1.  If the option is not `w`, display error "invalid option"
+
+## Link to slide:
+
+https://snappify.com/view/2e732ca7-cf84-437a-ba03-103e3b51ca48
