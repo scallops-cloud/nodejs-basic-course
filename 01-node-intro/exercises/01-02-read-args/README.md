@@ -7,11 +7,16 @@
    - Ex. `node index.js hello`
    - Then "hello" should be written to the `data.txt`
 
-2. Test and see if it works as expected
+2. In a new file `read.js`, write a logic to read file, then `console.log` the file content.
+
+   - Ex. `node read.js`
+   - Then the content of `data.txt` should be displayed
+
+3. Test and see if it works as expected
 
 ## Challenge:
 
-1. How to append the text with space?
+1. How to write the text with space?
 
    - Ex. `This is the sentence`
 
