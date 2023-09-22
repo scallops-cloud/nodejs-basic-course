@@ -1,5 +1,5 @@
 {
-  "name": "todo-cli",
+  "name": "node-intro",
   "type": "module",
   "version": "1.0.0",
   "description": "",
@@ -9,9 +9,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cli-color": "^2.0.3",
-    "conf": "^11.0.2"
-  }
+  "license": "ISC"
 }

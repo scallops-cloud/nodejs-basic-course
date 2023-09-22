@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const content = fs.readFileSync("./data.txt");
 console.log("Content of file:", content.toString());

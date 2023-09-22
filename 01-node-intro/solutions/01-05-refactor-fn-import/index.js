@@ -1,4 +1,4 @@
-const { write, read, clear } = require("./utils");
+import { write, read, clear } from "./utils.js";
 
 const option = process.argv[2];
 const input = process.argv[3];
