@@ -1,10 +1,7 @@
-const fs = require("fs");
+import fs from "fs";
 
 // "id", "title", "description" and "createdAt" for each todo
-const todoDatabase = [
-  
-]
-
+const todoDatabase = [];
 
 const filePath = "data.txt";
 const doneFilePath = "done.txt";
@@ -14,7 +11,7 @@ const doneFilePath = "done.txt";
  * Returns errorCode if error, null if successful.
  * @param {string} input - todo title
  */
-function addItem(input) {
+export function addItem(input) {
   if (input.length > 30) {
     return "too_long";
   }
@@ -28,7 +25,7 @@ function addItem(input) {
   return null;
 }
 
-function read() {
+export function read() {
   const content = fs.readFileSync(filePath);
   const text = content.toString();
   const list = text.trim().split("\n");
@@ -36,7 +33,7 @@ function read() {
   return list;
 }
 
-function markDone(itemNumber) {
+export function markDone(itemNumber) {
   // 1. read all
   const content = fs.readFileSync(filePath);
   const text = content.toString();
@@ -57,9 +54,3 @@ function markDone(itemNumber) {
   // 5. write the new set of todos without removed line
   fs.writeFileSync(filePath, list.join("\n") + "\n");
 }
-
-module.exports = {
-  addItem,
-  read,
-  markDone,
-};

@@ -1,7 +1,7 @@
-const moment = require("moment");
-const { list, addItem, markDone } = require("../models/todo");
+import moment from "moment";
+import { list, addItem, markDone } from "../models/todo";
 
-const listTodos = (req, res) => {
+export const listTodos = (req, res) => {
   const errorCode = req.query.errorCode;
   const todos = list();
 
@@ -15,7 +15,7 @@ const listTodos = (req, res) => {
   res.render("todo-list.ejs", { todos: formattedTodos, errorCode });
 };
 
-const createTodo = (req, res) => {
+export const createTodo = (req, res) => {
   const title = req.body.title;
   const description = req.body.description;
   const errorCode = addItem(title, description);
@@ -27,10 +27,8 @@ const createTodo = (req, res) => {
   res.redirect("/todos");
 };
 
-const updateTodoAsDone = (req, res) => {
+export const updateTodoAsDone = (req, res) => {
   markDone(req.params.todoIndex);
 
   res.redirect("/todos");
 };
-
-module.exports = { listTodos, createTodo, updateTodoAsDone };

@@ -1,7 +1,9 @@
-const express = require("express");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const { read, markDone, addItem } = require("./utils");
+import express from "express";
+import morgan from "morgan";
+import helmet from "helmet";
+
+import { read, markDone, addItem } from "./models/todo";
+import todoController from "./controllers/todoController";
 
 const app = express();
 const port = 8000;
@@ -12,13 +14,7 @@ app.use(express.static("public"));
 app.use(helmet());
 app.use(morgan("dev"));
 
-app.get("/todos", (req, res) => {
-  const errorCode = req.query.errorCode;
-
-  const todos = read();
-
-  res.render("todo-list.ejs", { todos, errorCode });
-});
+app.get("/todos", todoController.list);
 
 app.post("/todos", (req, res) => {
   const title = req.body.title;

@@ -1,6 +1,6 @@
-const express = require("express");
-const { isValidName } = require("./utils");
-const loggingMiddleware = require("./middlewares/loggingMiddleware");
+import express from "express";
+import { isValidName } from "./utils";
+import loggingMiddleware from "./middlewares/loggingMiddleware";
 
 const app = express();
 const port = 8000;

@@ -22,7 +22,7 @@ let nextTodoId = 16;
  * Returns errorCode if error, null if successful.
  * @param {string} input - todo title
  */
-function addItem(title, description) {
+export function addItem(title, description) {
   if (title.length > 30) {
     return "too_long";
   }
@@ -43,11 +43,11 @@ function addItem(title, description) {
   return null;
 }
 
-function list() {
+export function list() {
   return todoDatabase.filter((todo) => !todo.isDone);
 }
 
-function markDone(todoId) {
+export function markDone(todoId) {
   const todoIdNum = parseInt(todoId, 10);
   const todo = todoDatabase.find((todo) => todo.id === todoIdNum);
 
@@ -57,9 +57,3 @@ function markDone(todoId) {
 
   todo.isDone = true;
 }
-
-module.exports = {
-  list,
-  addItem,
-  markDone,
-};

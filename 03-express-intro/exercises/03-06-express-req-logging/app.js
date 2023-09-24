@@ -1,5 +1,5 @@
-const express = require("express");
-const { isValidName } = require("./utils");
+import express from "express";
+import { isValidName } from "./utils";
 
 const app = express();
 const port = 8000;

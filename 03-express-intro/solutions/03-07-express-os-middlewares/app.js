@@ -1,7 +1,7 @@
-const express = require("express");
-const { isValidName } = require("./utils");
-const morgan = require("morgan");
-const helmet = require("helmet");
+import express from "express";
+import { isValidName } from "./utils";
+import morgan from "morgan";
+import helmet from "helmet";
 
 const app = express();
 const port = 8000;

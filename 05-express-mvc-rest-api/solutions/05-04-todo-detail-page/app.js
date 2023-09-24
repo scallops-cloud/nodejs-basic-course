@@ -1,7 +1,7 @@
-const express = require("express");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const todoController = require("./controllers/todoController");
+import express from "express";
+import helmet from "helmet";
+import morgan from "morgan";
+import todoController from "./controllers/todoController";
 
 const app = express();
 const port = 8000;

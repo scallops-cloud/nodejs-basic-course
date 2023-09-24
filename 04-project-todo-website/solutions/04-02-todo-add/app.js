@@ -1,7 +1,7 @@
-const express = require("express");
-const helmet = require("helmet");
-const morgan = require("morgan");
-const { read, markDone, addItem } = require("./utils");
+import express from "express";
+import morgan from "morgan";
+import helmet from "helmet";
+import { read, markDone, addItem } from "./utils";
 
 const app = express();
 const port = 8000;

@@ -1,4 +1,4 @@
-function isValidName(name) {
+export function isValidName(name) {
   const regex = /[^a-zA-Z]/g;
   const hasNonAlphabets = regex.test(name);
 
@@ -8,5 +8,3 @@ function isValidName(name) {
 
   return true;
 }
-
-module.exports = { isValidName };

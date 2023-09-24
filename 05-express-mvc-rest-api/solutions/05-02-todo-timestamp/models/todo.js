@@ -1,4 +1,4 @@
-const fs = require("fs");
+import fs from "fs";
 
 const filePath = "data.txt";
 const doneFilePath = "done.txt";
@@ -26,7 +26,7 @@ const todoDatabase = [
  * Returns errorCode if error, null if successful.
  * @param {string} input - todo title
  */
-function addItem(input) {
+export function addItem(input) {
   if (input.length > 30) {
     return "too_long";
   }
@@ -40,11 +40,11 @@ function addItem(input) {
   return null;
 }
 
-function list() {
+export function list() {
   return todoDatabase.filter((todo) => !todo.isDone);
 }
 
-function markDone(todoId) {
+export function markDone(todoId) {
   const todoIdNum = parseInt(todoId, 10);
   const todo = todoDatabase.find((todo) => todo.id === todoIdNum);
 
@@ -54,9 +54,3 @@ function markDone(todoId) {
 
   todo.isDone = true;
 }
-
-module.exports = {
-  list,
-  addItem,
-  markDone,
-};
