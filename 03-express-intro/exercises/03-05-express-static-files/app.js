@@ -19,7 +19,7 @@ app.get("/users", (req, res) => {
     return { id, name: userDatabase[id] };
   });
 
-  res.render("user-list.ejs", { users });
+  res.json({ data: users });
 });
 
 app.get("/users/:userId", (req, res) => {
@@ -27,11 +27,20 @@ app.get("/users/:userId", (req, res) => {
   const name = userDatabase[userId];
 
   if (!name) {
-    res.send(`Error User ID ${userId} not found`);
+    res.status(404).json({
+      error: {
+        message: "User not found",
+      },
+    });
     return;
   }
 
-  res.render("user-detail.ejs", { id: userId, name, error: req.query.error });
+  res.json({
+    data: {
+      id: userId,
+      name,
+    },
+  });
 });
 
 app.post("/users/:userId", (req, res) => {
@@ -39,18 +48,31 @@ app.post("/users/:userId", (req, res) => {
   const name = req.body.name;
 
   if (!userDatabase[userId]) {
-    res.send(`Error User ID ${userId} not found`);
+    res.status(404).json({
+      error: {
+        message: "User not found",
+      },
+    });
     return;
   }
 
   if (!isValidName(name)) {
-    res.redirect(`/users/${userId}?error=invalid name`);
+    res.status(404).json({
+      error: {
+        message: "The specified name is invalid",
+      },
+    });
     return;
   }
 
   userDatabase[userId] = name;
 
-  res.redirect(`/users/${userId}`);
+  res.json({
+    data: {
+      id: userId,
+      name,
+    },
+  });
 });
 
 app.listen(port, () => {
