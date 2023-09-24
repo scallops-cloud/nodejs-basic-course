@@ -32,3 +32,7 @@ Implement the basic routing to accept the GET/POST request with parameters.
 - https://expressjs.com/en/4x/api.html#req.body
 - https://expressjs.com/en/starter/basic-routing.html
 - https://expressjs.com/en/guide/routing.html
+
+## Link to slide:
+
+https://snappify.com/view/9a91cd83-009a-4501-8d94-7635874a267a
