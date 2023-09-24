@@ -1,17 +1,17 @@
-const fs = require("fs");
-const clc = require("cli-color");
+import fs from "fs";
+import clc from "cli-color";
 
 const filePath = "data.txt";
 const doneFilePath = "done.txt";
 
-function write(input) {
+export function write(input) {
   fs.appendFileSync(filePath, input + "\n");
 
   printHeader();
   console.log("appended:", input);
 }
 
-function read() {
+export function read() {
   const content = fs.readFileSync(filePath);
   const text = content.toString();
   const list = text.trim().split("\n");
@@ -23,16 +23,16 @@ function read() {
   }
 }
 
-function clear() {
+export function clear() {
   printHeader();
   console.log("the file has been clear");
 }
 
-function printHeader() {
+export function printHeader() {
   console.log(clc.bgGreenBright.bold("Todo App!") + "\n");
 }
 
-function markDone(itemNumber) {
+export function markDone(itemNumber) {
   // 1. read all
   const content = fs.readFileSync(filePath);
   const text = content.toString();
@@ -56,10 +56,3 @@ function markDone(itemNumber) {
 
   console.log(`marked ${itemNumber}. as done.`);
 }
-
-module.exports = {
-  write,
-  read,
-  clear,
-  markDone,
-};
