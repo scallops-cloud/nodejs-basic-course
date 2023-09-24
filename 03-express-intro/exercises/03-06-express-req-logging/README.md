@@ -27,3 +27,8 @@ Learn to write the middleware to log the request
 - Hint: Try to delay the respond with setTimeout to see if it is correct.
 
 3. Question: Why logging status code and duration is different from others?
+
+4. You might notice, the image file request are not in the logging. Please make it appear in the logging.
+
+- Hint: middlewares order is matter.
+- Question: Why making changes can make the logging for images appear?
