@@ -1,5 +1,5 @@
 import express from "express";
-import { read, markDone } from "./utils";
+import { read, markDone } from "./utils.js";
 
 const app = express();
 const port = 8000;

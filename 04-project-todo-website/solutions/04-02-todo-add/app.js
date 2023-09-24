@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
-import { read, markDone, addItem } from "./utils";
+import { read, markDone, addItem } from "./utils.js";
 
 const app = express();
 const port = 8000;

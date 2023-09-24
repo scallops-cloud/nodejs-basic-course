@@ -1,5 +1,5 @@
 import express from "express";
-import { isValidName } from "./utils";
+import { isValidName } from "./utils.js";
 import morgan from "morgan";
 import helmet from "helmet";
 
