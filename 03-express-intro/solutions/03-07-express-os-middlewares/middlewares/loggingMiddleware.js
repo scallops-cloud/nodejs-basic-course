@@ -6,7 +6,7 @@ const loggingMiddleware = (req, res, next) => {
     const durationMs = end.getTime() - start.getTime();
 
     console.log(
-      `f ${start.toISOString()} [${req.method}] ${req.originalUrl} ${
+      `${start.toISOString()} [${req.method}] ${req.originalUrl} ${
         res.statusCode
       } ${durationMs}ms`
     );
@@ -15,4 +15,4 @@ const loggingMiddleware = (req, res, next) => {
   next();
 };
 
-module.exports = loggingMiddleware;
+export default loggingMiddleware;
