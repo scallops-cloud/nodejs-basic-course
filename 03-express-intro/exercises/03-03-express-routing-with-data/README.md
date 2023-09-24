@@ -33,3 +33,7 @@ Connect the routing to the temporary database
 
 - Declare JavaScript object above the routing, with the key = id number, value = name.
 - Update data in the object when POST
+
+## Link to slide:
+
+https://snappify.com/view/9a91cd83-009a-4501-8d94-7635874a267a
