@@ -20,3 +20,7 @@ Set up express and create a hello world app in express
 - https://expressjs.com/en/starter/installing.html
 - https://expressjs.com/en/starter/hello-world.html
 - https://expressjs.com/en/4x/api.html#res
+
+## Link to Slide:
+
+https://snappify.com/view/9cfd2202-f570-47c8-ba11-a5126a5ce2a6
