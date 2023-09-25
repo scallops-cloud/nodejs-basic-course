@@ -1,9 +1,9 @@
 let nextId = 5;
 
 const todoDatabase = {
-  1: { id: 1, title: "Buy a book", desc: "" },
-  2: { id: 2, title: "Go to school", desc: "" },
-  3: { id: 3, title: "Dinner with the friends", desc: "" },
+  1: { id: 1, title: "Buy a book", desc: "", isDone: false },
+  2: { id: 2, title: "Go to school", desc: "", isDone: false },
+  3: { id: 3, title: "Dinner with the friends", desc: "", isDone: false },
 };
 
 export const listTodos = () => {
@@ -19,7 +19,7 @@ export const findTodo = (todoId) => {
 export const createTodo = ({ title, desc }) => {
   // Implement logic here to create a new todo
   // 1. Create todo object with the new id from `nextId`
-  const newTodo = { id: nextId, title, desc };
+  const newTodo = { id: nextId, title, desc, isDone: false };
   // 2. Add the new todo object
   todoDatabase[nextId] = newTodo;
   // 3. increment the `nextId`
@@ -28,20 +28,20 @@ export const createTodo = ({ title, desc }) => {
   return newTodo;
 };
 
-export const updateTodo = ({ id, title, desc }) => {
+export const updateTodo = ({ id, title, desc, isDone }) => {
   const todo = findTodo(id);
 
   if (!todo) {
     return null;
   }
 
-  const updatedTodo = { ...todo, title, desc };
+  const updatedTodo = { ...todo, title, desc, isDone };
   todoDatabase[id] = updatedTodo;
 
   return updatedTodo;
 };
 
-export const partialUpdateTodo = ({ id, title, desc }) => {
+export const partialUpdateTodo = ({ id, title, desc, isDone }) => {
   const todo = findTodo(id);
 
   if (!todo) {
@@ -56,6 +56,10 @@ export const partialUpdateTodo = ({ id, title, desc }) => {
 
   if (desc) {
     updatedTodo.desc = desc;
+  }
+
+  if (isDone !== undefined) {
+    updatedTodo.isDone = isDone;
   }
 
   todoDatabase[id] = updatedTodo;

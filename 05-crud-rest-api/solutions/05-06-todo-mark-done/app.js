@@ -2,9 +2,9 @@
 Objective: implement done for todo
 
 Exercise:
-- Update Postman to have delete method
-- Implement deleteTodo
-- delete Error handling
+- Update Postman to have mark done API (let the studens design what to use)
+- Update route to be able to update mark done
+- Test mark done
 */
 
 import express from "express";
@@ -78,12 +78,13 @@ app.put("/todos/:todoId", (req, res) => {
 
 app.patch(`/todos/:todoId`, (req, res) => {
   const todoId = parseInt(req.params.todoId, 10);
-  const { title, desc } = req.body;
+  const { title, desc, isDone } = req.body;
 
   const updatedTodo = partialUpdateTodo({
     id: todoId,
     title,
     desc,
+    isDone,
   });
 
   if (!updatedTodo) {
