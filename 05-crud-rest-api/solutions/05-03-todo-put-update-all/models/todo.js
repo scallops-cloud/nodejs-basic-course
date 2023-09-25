@@ -1,5 +1,5 @@
 let nextId = 5;
-const todoDatabase = [
+let todoDatabase = [
   { id: 1, title: "Buy a book", desc: "" },
   { id: 2, title: "Go to school", desc: "" },
   { id: 3, title: "Dinner with the friends", desc: "" },
@@ -29,21 +29,17 @@ export const createTodo = ({ title, desc }) => {
 };
 
 export const updateTodo = ({ id, title, desc }) => {
-  // 1. Get the todoIndex with findIndex
-  const todoIndex = todoDatabase.findIndex((todo) => todo.id === id);
+  let updatedTodo = null;
 
-  // 2. if the todoIndex is not found (-1), return null
-  if (todoIndex === -1) {
-    return null;
-  }
+  todoDatabase = todoDatabase.map((todo) => {
+    // update the todo if match the id
+    if (todo.id === id) {
+      updatedTodo = { ...todo, title, desc };
+      return updatedTodo;
+    }
+    return todo;
+  });
 
-  // 3. Use index to reference the todo item in the todoDatabase (so we can change data)
-  const todo = todoDatabase[todoIndex];
-
-  // 4. update the todo data for title & desc with the new data
-  todo.title = title;
-  todo.desc = desc;
-
-  // 5. return updated todo
-  return todo;
+  // return updatedTodo (it will be null if no todo updated)
+  return updatedTodo;
 };

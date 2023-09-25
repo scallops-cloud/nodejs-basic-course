@@ -3,8 +3,10 @@ Objective: Understand the put
 
 Exercise:
 - Update Postman to have put method
-- Implement updateTodo
 - Put Error handling
+
+Challenge:
+- Question: How the updateTodo works?
 */
 
 import express from "express";
