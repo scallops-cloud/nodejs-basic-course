@@ -7,7 +7,7 @@
 ## Exercise:
 
 - Update Postman to have PUT method
-- Implment PUT in router using `updateTodo` from model
+- Implement PUT in router using `updateTodo` from model
 - Handle error in case of the todo not found.
 
 ## Challenge:
