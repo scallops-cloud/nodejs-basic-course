@@ -18,6 +18,52 @@ git checkout -b exercise-work
 
 4. Commit once you are done to save the changes. Check the solution to compare the result.
 
+## How to update the content
+
+1. Ensure we are at the working branch ex. `exercise-work`. And no uncommitted changes.
+
+```sh
+git status
+```
+
+Expected result:
+
+```sh
+On branch exercise-work
+nothing to commit, working tree clean
+```
+
+2. If the branch is not clean, commit all existing uncommitted changes first.
+
+```sh
+git add .
+git commit -m "Day 1's work"
+```
+
+3. Checkout main branch.
+
+```sh
+git checkout main
+```
+
+4. Pull the new changes
+
+```sh
+git pull
+```
+
+5. Switch back to working branch (can be other branch name you used).
+
+```sh
+git checkout exercise-work
+```
+
+6. Merge the new change to the `exercise-work` branch.
+
+```sh
+git merge main
+```
+
 ## 01 - Node.js Basic
 
 ### 📽️ Slides:
