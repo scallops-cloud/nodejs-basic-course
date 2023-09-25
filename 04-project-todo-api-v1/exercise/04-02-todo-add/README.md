@@ -2,10 +2,6 @@
 
 Add a form to add new todo based on the existing logic in previous CLI implementation.
 
-![Todo App Screenshot - Add](docs/screenshot-todo-app-add.png)
-
-![Todo App Screenshot - Error](docs/screenshot-todo-app-add.png)
-
 ## Specs:
 
 1. Todo List: "http://localhost:8000/todos"

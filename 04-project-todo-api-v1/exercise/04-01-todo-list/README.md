@@ -4,7 +4,9 @@ Create a Todo API using an existing Todo CLI to convert to API version.
 
 ## Specs:
 
-1. Todo List API: Display the list of todos we have.
+1. Todo List API: Display the list of todos we have
+
+- use `listTodos` function in `./models/todo.js`.
 
 Sample Request:
 
@@ -27,6 +29,8 @@ Sample Response:
 
 2. Todo Detail API: Display the detail of one todo by ID.
 
+- use `findTodo` function in `./models/todo.js`.
+
 Sample Request:
 
 ```
@@ -40,6 +44,28 @@ Sample Response:
   "data": {
     "id": 2,
     "title": "Go to school"
+  }
+}
+```
+
+3. Todo Detail API Error: return 404 with error when id not found.
+
+- use `findTodo` function in `./models/todo.js`.
+
+Sample Request:
+
+```
+GET http://localhost:8000/todos/9999
+```
+
+Sample Response:
+
+(http status code: 404)
+
+```json
+{
+  "error": {
+    "message": "todo not found"
   }
 }
 ```
