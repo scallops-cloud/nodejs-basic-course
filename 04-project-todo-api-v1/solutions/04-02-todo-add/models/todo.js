@@ -19,7 +19,11 @@ export const findTodo = (todoId) => {
 export const createTodo = ({ title }) => {
   // Implement logic here to create a new todo
   // 1. Create todo object with the new id from `nextId`
+  const newTodo = { id: nextId, title };
   // 2. Push the new todo object
+  todoDatabase.push(newTodo);
   // 3. increment the `nextId`
+  nextId++;
   // 4. return a new todo
+  return newTodo;
 };

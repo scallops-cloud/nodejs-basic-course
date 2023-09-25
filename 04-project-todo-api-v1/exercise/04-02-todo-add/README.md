@@ -6,6 +6,8 @@ Add a form to add new todo based on the existing logic in previous CLI implement
 
 1. Todo Add API: To add a new todo
 
+- Also assign a new unique ID to the todo.
+
 Sample Request:
 
 ```
@@ -65,4 +67,6 @@ Sample Response:
 
 2. Question: Where should the error check logic is? app.js or todo.js?
 
-3. Return the error if the todo title is shorter than 3 characters.
+3. Question: Why we need a unique id for each todo?
+
+4. Return the error if the todo title is shorter than 3 characters.

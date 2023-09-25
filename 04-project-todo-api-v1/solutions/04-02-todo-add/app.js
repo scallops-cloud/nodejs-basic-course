@@ -1,42 +1,42 @@
 import express from "express";
-import morgan from "morgan";
-import helmet from "helmet";
-import { read, markDone, addItem } from "./utils.js";
+import { findTodo, listTodos, createTodo } from "./models/todo.js";
 
 const app = express();
 const port = 8000;
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(express.static("public"));
-app.use(helmet());
-app.use(morgan("dev"));
 
 app.get("/todos", (req, res) => {
-  const errorCode = req.query.errorCode;
+  const todos = listTodos();
+  res.json({ data: todos });
+});
 
-  const todos = read();
+app.get("/todos/:todoId", (req, res) => {
+  const todoId = parseInt(req.params.todoId, 10);
+  const todo = findTodo(todoId);
 
-  res.render("todo-list.ejs", { todos, errorCode });
+  if (!todo) {
+    res.status(404).json({ error: { message: "todo not found" } });
+    return;
+  }
+
+  res.json({ data: todo });
 });
 
 app.post("/todos", (req, res) => {
   const title = req.body.title;
 
-  const errorCode = addItem(title);
-
-  if (errorCode) {
-    res.redirect(`/todos?errorCode=${errorCode}`);
+  if (title.length > 30) {
+    res
+      .status(400)
+      .json({ error: { message: "title must not exceed 30 characters" } });
     return;
   }
 
-  res.redirect("/todos");
-});
+  const todo = createTodo({ title });
 
-app.post("/todos/:todoIndex/done", (req, res) => {
-  markDone(req.params.todoIndex);
-
-  res.redirect("/todos");
+  res.json({ data: todo });
 });
 
 app.listen(port, () => {
