@@ -48,7 +48,11 @@ Sample Response:
 }
 ```
 
-3. Todo Detail API Error: return 404 with error when id not found.
+## Challenges:
+
+1. Question: What is the benefit of returning object under "data" field?
+
+2. Todo Detail API Error: return 404 with error when id not found.
 
 - use `findTodo` function in `./models/todo.js`.
 
@@ -69,7 +73,3 @@ Sample Response:
   }
 }
 ```
-
-## Challenges:
-
-1. Question: What is the benefit of returning object under "data" field?
