@@ -1,27 +1,27 @@
 let nextId = 5;
-let todoDatabase = [
-  { id: 1, title: "Buy a book", desc: "" },
-  { id: 2, title: "Go to school", desc: "" },
-  { id: 3, title: "Dinner with the friends", desc: "" },
-  { id: 4, title: "Cook breakfast", desc: "" },
-];
+
+const todoDatabase = {
+  1: { id: 1, title: "Buy a book", desc: "" },
+  2: { id: 2, title: "Go to school", desc: "" },
+  3: { id: 3, title: "Dinner with the friends", desc: "" },
+};
 
 export const listTodos = () => {
   // Implement logic here to list all todos
-  return todoDatabase;
+  return Object.values(todoDatabase);
 };
 
 export const findTodo = (todoId) => {
   // Implement logic here to find a single todo by id
-  return todoDatabase.find((todo) => todo.id === todoId);
+  return todoDatabase[todoId];
 };
 
 export const createTodo = ({ title, desc }) => {
   // Implement logic here to create a new todo
   // 1. Create todo object with the new id from `nextId`
   const newTodo = { id: nextId, title, desc };
-  // 2. Push the new todo object
-  todoDatabase.push(newTodo);
+  // 2. Add the new todo object
+  todoDatabase[nextId] = newTodo;
   // 3. increment the `nextId`
   nextId++;
   // 4. return a new todo
@@ -29,42 +29,36 @@ export const createTodo = ({ title, desc }) => {
 };
 
 export const updateTodo = ({ id, title, desc }) => {
-  let updatedTodo = null;
+  const todo = findTodo(id);
 
-  todoDatabase = todoDatabase.map((todo) => {
-    // update the todo if match the id
-    if (todo.id === id) {
-      updatedTodo = { ...todo, title, desc };
-      return updatedTodo;
-    }
-    return todo;
-  });
+  if (!todo) {
+    return null;
+  }
 
-  // return updatedTodo (it will be null if no todo updated)
+  const updatedTodo = { ...todo, title, desc };
+  todoDatabase[id] = updatedTodo;
+
   return updatedTodo;
 };
 
 export const partialUpdateTodo = ({ id, title, desc }) => {
-  let updatedTodo = null;
+  const todo = findTodo(id);
 
-  todoDatabase = todoDatabase.map((todo) => {
-    // update the todo if match the id
-    if (todo.id === id) {
-      updatedTodo = { ...todo };
+  if (!todo) {
+    return null;
+  }
 
-      if (title) {
-        updatedTodo.title = title;
-      }
+  const updatedTodo = { ...todo };
 
-      if (desc) {
-        updatedTodo.desc = desc;
-      }
+  if (title) {
+    updatedTodo.title = title;
+  }
 
-      return updatedTodo;
-    }
-    return todo;
-  });
+  if (desc) {
+    updatedTodo.desc = desc;
+  }
 
-  // return updatedTodo (it will be null if no todo updated)
+  todoDatabase[id] = updatedTodo;
+
   return updatedTodo;
 };
