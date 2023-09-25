@@ -1,15 +1,14 @@
 /*
-Objective: Understand the flow of building REST API with Postman 
+Objective: Understand the put
 
 Exercise:
-- Update Postman Add to have description.
-- Add new field for "description"
-- Check Postman Add to have description.
-- Check if the Postman list have the description.
+- Update Postman to have put method
+- Implement updateTodo
+- Put Error handling
 */
 
 import express from "express";
-import { findTodo, listTodos, createTodo } from "./models/todo.js";
+import { findTodo, listTodos, createTodo, updateTodo } from "./models/todo.js";
 
 const app = express();
 const port = 8000;
@@ -48,6 +47,26 @@ app.post("/todos", (req, res) => {
   const todo = createTodo({ title, desc });
 
   res.json({ data: todo });
+});
+
+app.put("/todos/:todoId", (req, res) => {
+  // 1. get the `todoId` params and parse to int
+  const todoId = parseInt(req.params.todoId);
+
+  // 2. get the `title` and `desc` from body
+  const { title, desc } = req.body;
+
+  // 3. send all data to update with `updateTodo`
+  const updatedTodo = updateTodo({ id: todoId, title, desc });
+
+  // 4. if the return from updateTodo is null, response error
+  if (!updatedTodo) {
+    res.json({ error: { message: "failed to update" } });
+    return;
+  }
+
+  // 5. response the updatedTodo
+  res.json({ data: updatedTodo });
 });
 
 app.listen(port, () => {
