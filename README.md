@@ -1,5 +1,23 @@
 # Node.js Basic Course
 
+## How to use this course?
+
+1. Clone this repository to your local machine.
+
+```sh
+git clone git@github.com:scallops-cloud/nodejs-basic-course.git
+```
+
+2. Checkout a new branch to work on, to avoid the conflict with the new workshop update. (You may use other branch name you prefer.)
+
+```
+git checkout -b exercise-work
+```
+
+3. Check the slide if available for the exercise, then try to work on the code in the exercise folder.
+
+4. Commit once you are done to save the changes. Check the solution to compare the result.
+
 ## 01 - Node.js Basic
 
 ### 📽️ Slides:
