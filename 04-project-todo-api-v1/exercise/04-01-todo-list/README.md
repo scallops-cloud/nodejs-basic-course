@@ -1,6 +1,6 @@
 # Express.js Todo API v1.0 - Todo List
 
-Create a Todo API using an existing Todo CLI to convert to API version.
+Create a Todo API using an Express.js
 
 ## Specs:
 
@@ -53,8 +53,6 @@ Sample Response:
 1. Question: What is the benefit of returning object under "data" field?
 
 2. Todo Detail API Error: return 404 with error when id not found.
-
-- use `findTodo` function in `./models/todo.js`.
 
 Sample Request:
 
