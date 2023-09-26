@@ -20,15 +20,15 @@ GET /todos?isDone=true
 Response:
 List only Todo which `isDone` is `true`
 
-```
+```json
 {
-    "data": [
-        {
-            "id": 2,
-            "title": "Go to school",
-            "desc": "",
-            "isDone": true
-        }
-    ]
+  "data": [
+    {
+      "id": 2,
+      "title": "Go to school",
+      "desc": "",
+      "isDone": true
+    }
+  ]
 }
 ```

@@ -10,6 +10,24 @@
 - Implement DELETE in router using `deleteTodo` from model
 - Handle error in case of the todo not found.
 
+Request:
+
+```
+DELETE /todos/2
+```
+
+Response:
+
+```json
+{
+  "data": {
+    "id": 2,
+    "title": "Go to school",
+    "desc": ""
+  }
+}
+```
+
 ## Challenge:
 
 - Question: How the `deleteTodo` works?
