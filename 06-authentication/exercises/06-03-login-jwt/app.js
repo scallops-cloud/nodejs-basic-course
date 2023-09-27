@@ -57,14 +57,17 @@ app.post("/login", (req, res) => {
       .send({ error: { message: "Invalid email or password" } });
   }
 
+  // 🍎 Implement: 5.1. Instead of `{"status": "ok"}`,
+  //    return `{ token: "..." }` with JWT inside.
   res.send({ status: "ok" });
 });
 
 function createJwt(email) {
-  const jwtSecretKey = process.env.JWT_SECRET_KEY;
-  const token = jwt.sign({ id: email }, jwtSecretKey, {
-    expiresIn: "1h",
-  });
+  // 🍎 Implement: 4.1. Store the value from `JWT_SECRET_KEY` in .env to`jwtSecretKey`.
+  const jwtSecretKey = "Replace this with your JWT secret key from .env";
+
+  // 🍎 Implement: 4.2. Create a JWT with `jwt.sign(..)`. The token must expire in 3 hours.
+  const token = "Replace this with your JWT sign code";
 
   return token;
 }
