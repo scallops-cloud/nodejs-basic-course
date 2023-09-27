@@ -63,7 +63,7 @@ app.post("/login", (req, res) => {
 });
 
 function createJwt(email) {
-  // 🍎 Implement: 4.1. Store the value from `JWT_SECRET_KEY` in .env to`jwtSecretKey`.
+  // 🍎 Implement: 4.1. Store the value from `process.env.JWT_SECRET_KEY` in .env to `jwtSecretKey`.
   const jwtSecretKey = "Replace this with your JWT secret key from .env";
 
   // 🍎 Implement: 4.2. Create a JWT with `jwt.sign(..)`. The token must expire in 3 hours.

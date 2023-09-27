@@ -23,7 +23,7 @@ app.post("/signup", (req, res) => {
 
   // Hash password
   // 🍎 Implement: 1.1. Instead of saving plain text password,
-  //    hash it first with bcrypt.
+  //    hash it first with `bcrypt.hashSync(...)`.
   const hashedPassword = "Replace this with your code";
 
   // Store new user in database with hashed password
@@ -50,7 +50,7 @@ app.post("/login", (req, res) => {
 
   // Check password
   // 🍎 Implement: 2.1. Instead of directly compare passwords,
-  //    use bcrypt compare instead. (Replace validPassword logic with new code)
+  //    use `bcrypt.compareSync(...)` instead.
   const validPassword = user.password === password;
   if (!validPassword) {
     return res

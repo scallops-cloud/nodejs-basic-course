@@ -25,7 +25,7 @@ JWT_SECRET_KEY=SECRET_HERE
 
 4. Function `createJwt`
 
-   - 4.1. Store the value from `JWT_SECRET_KEY` in .env to `jwtSecretKey`.
+   - 4.1. Store the value from `process.env.JWT_SECRET_KEY` in .env to `jwtSecretKey`.
    - 4.2. Create a JWT with `jwt.sign(..)`. The token must expire in 3 hours.
 
 5. Login Router `/login`
@@ -33,6 +33,8 @@ JWT_SECRET_KEY=SECRET_HERE
    - 5.1. Instead of `{"status": "ok"}`, return `{ token: "..." }` with JWT inside.
 
 6. Test with postman to see the token result when login.
+
+7. Go to [jwt.io](https://jwt.io/) and paste the token to see the decoded result. (Don't do this in production!)
 
 ## Challenges:
 
