@@ -71,6 +71,10 @@ https://github.com/scallops-cloud/nodejs-basic-course/tree/main/05-crud-rest-api
 
 ### 06 - Authentication
 
+#### 📽️ Slides:
+
+https://snappify.com/view/0bd6802a-c2b2-4b1b-890d-385f4fc9fe32
+
 #### 🧪 Workshop
 
 https://github.com/scallops-cloud/nodejs-basic-course/tree/main/06-authentication/exercises

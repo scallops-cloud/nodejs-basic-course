@@ -39,3 +39,7 @@ Understand the basic flow of sending username & password.
 
 1. Question: What is the problem with this implementation approach?
 2. Question: Why don't we have the password confirmation field here?
+
+## Link to slide:
+
+https://snappify.com/view/0bd6802a-c2b2-4b1b-890d-385f4fc9fe32
