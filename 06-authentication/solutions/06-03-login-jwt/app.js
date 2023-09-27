@@ -3,6 +3,8 @@ import morgan from "morgan";
 import helmet from "helmet";
 import { User } from "./models/user.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 const app = express();
 const port = 8000;
@@ -55,8 +57,17 @@ app.post("/login", (req, res) => {
       .send({ error: { message: "Invalid email or password" } });
   }
 
-  res.send({ status: "ok" });
+  res.send({ token: createJwt(email) });
 });
+
+function createJwt(email) {
+  const jwtSecretKey = process.env.JWT_SECRET_KEY;
+  const token = jwt.sign({ id: email }, jwtSecretKey, {
+    expiresIn: "1h",
+  });
+
+  return token;
+}
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
