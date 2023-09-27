@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import helmet from "helmet";
 import { User } from "./models/user.js";
+import bcrypt from "bcrypt";
 
 const app = express();
 const port = 8000;
@@ -20,8 +21,12 @@ app.post("/signup", (req, res) => {
     return res.status(400).json({ error: { message: "user already exists" } });
   }
 
-  // Store new user in database
-  const user = new User({ email, password });
+  // Hash password
+  const saltRounds = 12;
+  const hashedPassword = bcrypt.hashSync(password, saltRounds);
+
+  // Store new user in database with hashed password
+  const user = new User({ email, password: hashedPassword });
   user.save();
 
   res.json({
@@ -43,7 +48,7 @@ app.post("/login", (req, res) => {
   }
 
   // Check password
-  const validPassword = user.password === password;
+  const validPassword = bcrypt.compareSync(password, user.password);
   if (!validPassword) {
     return res
       .status(400)
