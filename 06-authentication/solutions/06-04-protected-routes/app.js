@@ -81,6 +81,10 @@ app.get("/secret", auth, (req, res) => {
   res.json({ data: { message: "Welcome to the secret area." } });
 });
 
+app.get("/public", (req, res) => {
+  res.json({ data: { message: "Welcome to the public area." } });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

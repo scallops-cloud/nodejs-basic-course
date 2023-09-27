@@ -11,7 +11,8 @@ export const auth = (req, res, next) => {
   const token = authHeader.split(" ")[1]; // Get the token part after "Bearer"
 
   try {
-    const decoded = jwt.verify(token, jwtSecretKey);
+    // 🍎 Implement: 2.1. Use `jwt.verify(...)` to verify the token.
+    const decoded = "Replace this with your code";
     req.user = decoded;
     next();
   } catch (err) {
