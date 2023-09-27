@@ -37,6 +37,8 @@ Understand the basic flow of sending username & password.
 
 4. Test the result with Postman.
 
+   4.1. See the data in `models/users.json`
+
 ## Challenges:
 
 1. Question: What is the problem with this implementation approach?
