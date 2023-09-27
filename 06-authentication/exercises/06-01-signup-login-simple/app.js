@@ -12,38 +12,42 @@ app.use(helmet());
 app.use(morgan("dev"));
 
 app.post("/signup", (req, res) => {
-  const { email, password } = req.body;
+  // 🍎 Implement: 2.1. Retrieve `email` and `password` from request.
+
 
   // Check if user already exists
   const existingUser = User.findOne({ email });
-  if (existingUser) {
-    return res.status(400).json({ error: { message: "user already exists" } });
-  }
+  //  🍎 Implement: 2.2. If the user already exists, 
+  //     return 400 error with the message "user already exists".
+
 
   // Store new user in database
   const user = new User({ email, password });
   user.save();
 
-  res.json({
-    data: {
-      email: user.email,
-    },
-  });
+  //  🍎 Implement: 2.3. Return json in this format if successfully signup
+  // {
+  //   "data": {
+  //     "email": "email@sample.com"
+  //   }
+  // }
+
 });
 
 app.post("/login", (req, res) => {
-  const { email, password } = req.body;
+  // 🍎 Implement: 3.1. Retrieve `email` and `password` from request.
+
 
   // Fetch user from database
   const user = User.findOne({ email });
-  if (!user) {
-    return res
-      .status(400)
-      .send({ error: { message: "Invalid email or password" } });
-  }
+  // 🍎 Implement: 3.2. If no user found, return 400 error with 
+  //    the message "Invalid email or password"
+
 
   // Check password
-  const validPassword = user.password === password;
+  // 🍎 Implement: 3.3. check if password is correct by 
+  //    comparing equal input password and user password from database.
+  const validPassword = 'Implement: replace this with your code'
   if (!validPassword) {
     return res
       .status(400)
