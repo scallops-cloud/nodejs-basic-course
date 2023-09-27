@@ -1,5 +1,8 @@
 # Node.js Basic Course
 
+The course was designed for the [Generation Thailand](https://thailand.generation.org/) JSD Program.
+It is a one-week course for the students to learn the basic of Node.js and Express.js.
+
 ## How to use this course?
 
 1. Clone this repository to your local machine.
@@ -88,7 +91,30 @@ https://github.com/scallops-cloud/nodejs-basic-course/tree/main/02-project-todo-
 
 - [Express-1: Express.js Introduction](https://snappify.com/view/9cfd2202-f570-47c8-ba11-a5126a5ce2a6) for exercise 03-01
 - [Express-2: Basic Router](https://snappify.com/view/9a91cd83-009a-4501-8d94-7635874a267a) for exercise 03-02 & 03-03
+- [Express-3: Middleware](https://snappify.com/view/da273be5-7ced-4a9a-93ce-fda4c2670e36) for exercise 03-06
 
 ### 🧪 Workshop
 
 https://github.com/scallops-cloud/nodejs-basic-course/tree/main/03-express-intro/exercises
+
+## 04 - Project Todo API
+
+### 🧪 Workshop
+
+https://github.com/scallops-cloud/nodejs-basic-course/tree/main/04-project-todo-api-v1/exercises
+
+## 05 - CRUD & Rest API
+
+### 📽️ Slides:
+
+https://snappify.com/view/888e678f-01de-43fd-a79c-e92ff9a07d97
+
+### 🧪 Workshop
+
+https://github.com/scallops-cloud/nodejs-basic-course/tree/main/05-crud-rest-api/exercises
+
+## 06 - Authentication
+
+### 🧪 Workshop
+
+https://github.com/scallops-cloud/nodejs-basic-course/tree/main/06-authentication/exercises
