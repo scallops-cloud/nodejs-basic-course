@@ -8,17 +8,16 @@ Understand the use of password hashing and how to use bcrypt.
 
 1. Signup Router `/signup`
 
-   1.1. Instead of saving plain text password, hash it first with bcrypt.
+   - 1.1. Instead of saving plain text password, hash it first with bcrypt.
 
 2. Login Router `/login`
 
-   2.1. Instead of directly compare passwords, use bcrypt compare instead.
+   - 2.1. Instead of directly compare passwords, use bcrypt compare instead.
 
 3. Test the result with Postman.
 
-   4.1. See the data in `models/users.json`.
-
-   4.2. How the result in `users.json` different from the previous exercise?
+   - 3.1. See the data in `models/users.json`.
+   - 3.2. How the result in `users.json` different from the previous exercise?
 
 ## Challenges:
 
