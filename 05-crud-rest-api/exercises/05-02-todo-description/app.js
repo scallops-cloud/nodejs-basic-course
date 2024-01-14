@@ -4,8 +4,8 @@ import { findTodo, listTodos, createTodo } from "./models/todo.js";
 const app = express();
 const port = 8000;
 
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/todos", (req, res) => {
   const todos = listTodos();
