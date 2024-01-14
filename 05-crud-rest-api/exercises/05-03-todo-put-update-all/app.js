@@ -4,8 +4,8 @@ import { findTodo, listTodos, createTodo } from "./models/todo.js";
 const app = express();
 const port = 8000;
 
-app.use(express.json()); // for parsing application/json
-app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/todos", (req, res) => {
   const todos = listTodos();
@@ -41,11 +41,13 @@ app.post("/todos", (req, res) => {
 });
 
 app.put("/todos/:todoId", (req, res) => {
-  // 1. get the `todoId` params and parse to int
-  // 2. get the `title` and `desc` from body
-  // 3. send all data to update with `updateTodo`
-  // 4. if the return from updateTodo is null, response error
-  // 5. response the updatedTodo
+  /**
+   * 1. Get the `todoId` from request (req) parameters. Don't forget to parse it to integer
+   * 2. Get the `title` and `desc` from body
+   * 3. Send all data to update with `updateTodo`
+   * 4. If the return from updateTodo is null, response error
+   * 5. Response the updatedTodo
+   */
 });
 
 app.listen(port, () => {
