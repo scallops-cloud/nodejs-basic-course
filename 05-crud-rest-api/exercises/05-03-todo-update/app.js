@@ -1,5 +1,10 @@
 import express from "express";
-import { findTodo, listTodos, createTodo } from "./models/todo.js";
+import {
+  findTodo,
+  listTodo,
+  createTodo,
+  updateTodo,
+} from "../05-99-model/todo.mjs";
 
 const app = express();
 const port = 8000;
@@ -8,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/todos", (req, res) => {
-  const todos = listTodos();
+  const todos = listTodo();
   res.json({ data: todos });
 });
 
@@ -25,29 +30,36 @@ app.get("/todos/:todoId", (req, res) => {
 });
 
 app.post("/todos", (req, res) => {
-  const title = req.body.title;
-  const desc = req.body.desc;
+  const { title, description } = req.body;
 
   if (title.length > 30) {
-    res
-      .status(400)
-      .json({ error: { message: "title must not exceed 30 characters" } });
+    res.status(400).json({ error: { message: "title too long" } });
     return;
   }
 
-  const todo = createTodo({ title, desc });
+  if (description.length > 100) {
+    res.status(400).json({ error: { message: "description too long" } });
+    return;
+  }
+
+  const todo = createTodo({
+    title,
+    description,
+  });
 
   res.json({ data: todo });
 });
 
 app.put("/todos/:todoId", (req, res) => {
   /**
-   * 1. Get the `todoId` from request (req) parameters. Don't forget to parse it to integer
-   * 2. Get the `title` and `desc` from body
-   * 3. Send all data to update with `updateTodo`
-   * 4. If the return from updateTodo is null, response error
-   * 5. Response the updatedTodo
+   * 1. Get the `todoId` from req.params
+   * 2. Parse the `todoId` to integer
+   * 3. Get `title` and `description` from req.body
+   * 4. Update todo with `updateTodo`
+   * 5. If the return from updateTodo is null, response error
+   * 6. Otherwise, response the updatedTodo
    */
+  throw new Error("Not implemented");
 });
 
 app.listen(port, () => {
