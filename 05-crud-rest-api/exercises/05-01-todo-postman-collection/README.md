@@ -6,7 +6,7 @@
 2. Create 3 Postman Requests
    - List Todos
    - Get Todo Detail
-   - Create Todo
+   - Create Todo (Not working yet)
 3. Run the application, then call from Postman to see all 3 requests work.
 
 ## Link to slide:
