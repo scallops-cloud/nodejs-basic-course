@@ -9,10 +9,10 @@ export function write(input) {
 }
 
 export function read() {
-  const content = fs.readFileSync(filePath);
+  const content = fs.readFileSync(filePath, "utf-8");
   console.log(clc.blue.bgYellowBright.bold("File Content:"));
 
-  console.log(content.toString());
+  console.log(content);
 }
 
 export function clear() {

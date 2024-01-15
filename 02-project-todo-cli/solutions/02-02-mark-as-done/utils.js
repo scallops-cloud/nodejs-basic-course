@@ -12,8 +12,8 @@ export function write(input) {
 }
 
 export function read() {
-  const content = fs.readFileSync(filePath);
-  const text = content.toString();
+  const content = fs.readFileSync(filePath, "utf-8");
+  const text = content;
   const list = text.trim().split("\n");
 
   printHeader();
@@ -34,8 +34,8 @@ export function printHeader() {
 
 export function markDone(itemNumber) {
   // 1. read all
-  const content = fs.readFileSync(filePath);
-  const text = content.toString();
+  const content = fs.readFileSync(filePath, "utf-8");
+  const text = content;
   const list = text.trim().split("\n");
 
   if (itemNumber < 0 || itemNumber > list.length) {

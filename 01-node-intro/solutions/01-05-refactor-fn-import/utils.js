@@ -8,9 +8,9 @@ export function write(input) {
 }
 
 export function read() {
-  const content = fs.readFileSync(filePath);
+  const content = fs.readFileSync(filePath, "utf-8");
   console.log("file content:");
-  console.log(content.toString());
+  console.log(content);
 }
 
 export function clear() {
