@@ -49,7 +49,9 @@ $ node index.js add "Buy a chocolate"
 Todo "Buy a chocolate" was added.
 ```
 
-5. When listing, below title, display the total amount of the items (Hint: split)
+## Challenges:
+
+1. When listing, below title, display the total amount of the items (Hint: split)
 
 Sample
 
@@ -63,7 +65,7 @@ Study Express.js
 Shopping for food
 ```
 
-6. For each item in list, add the number 1, 2, 3, 4,.. in front of them.
+2. For each item in list, add the number 1, 2, 3, 4,.. in front of them.
 
 Sample
 
@@ -77,8 +79,6 @@ Total todos: 3 items.
 3. Shopping for food
 ```
 
-## Challenges:
+3. Display the todo in reversed order (newer on top).
 
-1. Display the todo in reversed order (newer on top).
-
-2. Decorate colors in other places to make it easier to understand.
+4. Decorate colors in other places to make it easier to understand.
