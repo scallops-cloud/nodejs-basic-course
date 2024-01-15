@@ -1,5 +1,5 @@
 import express from "express";
-import { findTodo, listTodos, createTodo } from "./models/todo.js";
+import { findTodo, listTodo, createTodo } from "../05-99-model/todo.mjs";
 
 const app = express();
 const port = 8000;
@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/todos", (req, res) => {
-  const todos = listTodos();
+  const todos = listTodo();
   res.json({ data: todos });
 });
 
@@ -25,18 +25,14 @@ app.get("/todos/:todoId", (req, res) => {
 });
 
 app.post("/todos", (req, res) => {
-  const title = req.body.title;
-
-  if (title.length > 30) {
-    res
-      .status(400)
-      .json({ error: { message: "title must not exceed 30 characters" } });
-    return;
-  }
-
-  const todo = createTodo({ title });
-
-  res.json({ data: todo });
+  /**
+   * 1. Get the `title` and `description` from req.body
+   * 2. Validate the `title` length, if more than 30 characters, response error
+   * 3. Validate the `description` length, if more than 100 characters, response error
+   * 4. Create new todo with `createTodo`
+   * 5. Response the created todo
+   */
+  throw new Error("Not implemented");
 });
 
 app.listen(port, () => {

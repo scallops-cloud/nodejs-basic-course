@@ -98,16 +98,7 @@ export const updateTodo = ({ id }, attributes) => {
     return null;
   }
 
-  /**
-   * Bonus
-   *
-   * This code has a bug where caller can update the `id` of the todo.
-   * In real world, we don't want to allow the caller to update the `id`.
-   *
-   * Fix the code so that the caller can't update todo's id. Or, even if they
-   * try to update the id, it will be ignored.
-   */
-  todo = { ...todo, ...attributes };
+  todo = { ...todo, ...attributes, id };
   todoDatabase[id] = todo;
 
   return todo;
