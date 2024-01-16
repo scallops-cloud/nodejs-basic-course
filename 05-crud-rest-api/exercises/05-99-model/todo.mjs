@@ -112,3 +112,19 @@ export const updateTodo = ({ id }, attributes) => {
 
   return todo;
 };
+
+/**
+ *
+ * @param {number} todoId
+ * @returns {Todo}
+ */
+export const deleteTodo = (todoId) => {
+  const todo = find(todoId);
+  if (!todo) {
+    return null;
+  }
+
+  delete todoDatabase[todoId];
+
+  return todo;
+};
