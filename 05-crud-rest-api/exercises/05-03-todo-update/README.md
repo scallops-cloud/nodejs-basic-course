@@ -37,7 +37,7 @@ Response:
 
 ## Challenge:
 
-Prevent todo's ID from being able to update.
+Prevent todo's ID from being able to get updated.
 
 Request:
 ```

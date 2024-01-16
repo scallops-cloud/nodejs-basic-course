@@ -7,7 +7,7 @@
    - List Todos
    - Get Todo Detail
    - Create Todo (Not working yet)
-3. Run the application, then call from Postman to see all 3 requests work.
+3. Run the application, then call from Postman to see all 3 requests work
 
 ## Link to slide:
 

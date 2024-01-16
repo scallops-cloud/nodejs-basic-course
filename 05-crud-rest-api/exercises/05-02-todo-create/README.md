@@ -6,11 +6,11 @@ Understand the flow of building REST API with Postman
 
 ## Exercises:
 
-1. Update Postman "Create Todo" to have title and description.
-2. Test Postman to see the result.
-3. Implement create todo handler in `app.js`.
-4. Try Postman "Create Todo" to see the result.
-5. Check if the Postman "List Todos" have newly added todo.
+1. Update Postman "Create Todo" to have title and description
+2. Test Postman to see the result
+3. Implement create todo handler in `app.js`
+4. Try Postman "Create Todo" to see the result
+5. Check if the Postman "List Todos" have newly added todo
 
 Request:
 
