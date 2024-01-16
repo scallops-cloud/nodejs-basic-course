@@ -92,16 +92,15 @@ export const createTodo = (attributes) => {
  * @param {TodoAttributes} attributes
  * @returns {Todo}
  */
-export const updateTodo = ({ id }, attributes) => {
-  const todo = find(id);
+export const updateTodo = (id, attributes) => {
+  const todo = findTodo(id);
   if (!todo) {
     return null;
   }
 
-  todo = { ...todo, ...attributes, id };
-  todoDatabase[id] = todo;
+  const updatedTodo = (todoDatabase[id] = { ...todo, ...attributes, id });
 
-  return todo;
+  return updatedTodo;
 };
 
 /**
@@ -110,7 +109,7 @@ export const updateTodo = ({ id }, attributes) => {
  * @returns {Todo}
  */
 export const deleteTodo = (todoId) => {
-  const todo = find(todoId);
+  const todo = findTodo(todoId);
   if (!todo) {
     return null;
   }

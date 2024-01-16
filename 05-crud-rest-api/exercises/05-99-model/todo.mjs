@@ -92,8 +92,8 @@ export const createTodo = (attributes) => {
  * @param {TodoAttributes} attributes
  * @returns {Todo}
  */
-export const updateTodo = ({ id }, attributes) => {
-  const todo = find(id);
+export const updateTodo = (id, attributes) => {
+  const todo = findTodo(id);
   if (!todo) {
     return null;
   }
@@ -107,10 +107,9 @@ export const updateTodo = ({ id }, attributes) => {
    * Fix the code so that the caller can't update todo's id. Or, even if they
    * try to update the id, it will be ignored.
    */
-  todo = { ...todo, ...attributes };
-  todoDatabase[id] = todo;
+  const updatedTodo = (todoDatabase[id] = { ...todo, ...attributes });
 
-  return todo;
+  return updatedTodo;
 };
 
 /**
@@ -119,7 +118,7 @@ export const updateTodo = ({ id }, attributes) => {
  * @returns {Todo}
  */
 export const deleteTodo = (todoId) => {
-  const todo = find(todoId);
+  const todo = findTodo(todoId);
   if (!todo) {
     return null;
   }
