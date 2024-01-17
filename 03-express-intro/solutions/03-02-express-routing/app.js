@@ -5,10 +5,6 @@ const port = 8000;
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-app.get("/", (req, res) => {
-  res.send("Hello my friends");
-});
-
 app.get("/users", (req, res) => {
   const userId = req.query.id;
   res.send(`User ID: ${userId}`);

@@ -6,15 +6,17 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 const userDatabase = {
-  // user data here
+  20: "Manee",
+  21: "Mana",
+  22: "Mano",
 };
 
 app.get("/users/:userId", (req, res) => {
-  // Implement here
+  // 1. Implement: returns "User ID: [NUMBER] (name: [NAME])"
 });
 
 app.post("/users/:userId", (req, res) => {
-  // Implement here
+  // 2. Implement: returns "User ID: [NUMBER], name has been updated to [NAME]".
 });
 
 app.listen(port, () => {
