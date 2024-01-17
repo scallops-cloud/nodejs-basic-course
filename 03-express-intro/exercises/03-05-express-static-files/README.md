@@ -12,7 +12,7 @@ Allow the users to access static files like CSS or images.
 - http://localhost:8000/images/pet-21.jpg
 - http://localhost:8000/images/pet-22.jpg
 
-2. When getting user detail, also return their pet image (image names follow the user id).
+3. When getting user detail, also return their pet image (image names follow the user id).
 
 Ex.
 Request: `GET http://localhost:8000/users/20`

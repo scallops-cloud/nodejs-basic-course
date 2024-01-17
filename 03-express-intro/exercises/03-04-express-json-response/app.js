@@ -21,6 +21,7 @@ app.get("/users/:userId", (req, res) => {
     return;
   }
 
+  // 1. Implement: returns JSON response
   res.send(`User ID: ${userId} (Name: ${name})`);
 });
 
@@ -35,6 +36,7 @@ app.post("/users/:userId", (req, res) => {
 
   userDatabase[userId] = name;
 
+  // 2. Implement: returns JSON response
   res.send(`User ID: ${userId}, name has been updated to ${name}`);
 });
 
