@@ -71,3 +71,9 @@ Sample Response:
   }
 }
 ```
+
+3. Integrate with frontend. Try running frontend app in [04-project-todo-api-v1/todo-webapp](../todo-webapp)
+
+Need to make sure the webapp can connect to the API server.
+
+- Hint: use `cors` middleware

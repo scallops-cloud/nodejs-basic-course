@@ -63,10 +63,16 @@ Sample Response:
 
 ## Challenges:
 
-1. Question: Why we use POST instead of GET to create a todo?
+1. Integrate with frontend. Try running frontend app in [04-project-todo-api-v1/todo-webapp](../todo-webapp)
 
-2. Question: Where should the error check logic is? app.js or todo.js?
+Need to make sure the webapp can connect to the API server.
 
-3. Question: Why we need a unique id for each todo?
+- Hint: use `cors` middleware
 
-4. Return the error if the todo title is shorter than 3 characters.
+2. Question: Why we use POST instead of GET to create a todo?
+
+3. Question: Where should the error check logic is? app.js or todo.js?
+
+4. Question: Why we need a unique id for each todo?
+
+5. Return the error if the todo title is shorter than 3 characters.

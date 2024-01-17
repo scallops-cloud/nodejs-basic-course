@@ -1,8 +1,11 @@
 import express from "express";
+import cors from "cors";
 import { findTodo, listTodos } from "./models/todo.js";
 
 const app = express();
 const port = 8000;
+
+app.use(cors());
 
 app.get("/todos", (req, res) => {
   const todos = listTodos();
