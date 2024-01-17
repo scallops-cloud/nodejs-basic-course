@@ -6,9 +6,11 @@ const todoDatabase = [
 ];
 
 export const listTodos = () => {
-  // Implement logic here to list all todos
+  // 1. Implement logic here to list all todos
+  throw new Error("Not implemented");
 };
 
 export const findTodo = (todoId) => {
-  // Implement logic here to find a single todo by id
+  // 2. Implement logic here to find a single todo by id
+  throw new Error("Not implemented");
 };
