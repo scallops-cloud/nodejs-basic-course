@@ -63,7 +63,7 @@ https://github.com/scallops-cloud/nodejs-basic-course/tree/main/04-project-todo-
 
 #### 📽️ Slides:
 
-https://snappify.com/view/888e678f-01de-43fd-a79c-e92ff9a07d97
+- [REST-1: REST API Introduction](https://snappify.com/view/888e678f-01de-43fd-a79c-e92ff9a07d97)
 
 #### 🧪 Workshop
 
@@ -73,7 +73,8 @@ https://github.com/scallops-cloud/nodejs-basic-course/tree/main/05-crud-rest-api
 
 #### 📽️ Slides:
 
-https://snappify.com/view/0bd6802a-c2b2-4b1b-890d-385f4fc9fe32
+- [AUTH-1: Encryption & Hashing](https://snappify.com/view/8923e6d8-59de-4941-b4f6-eab8bcce45fe)
+- [AUTH-2: Intro to Express.js Authentication](https://snappify.com/view/0bd6802a-c2b2-4b1b-890d-385f4fc9fe32)
 
 #### 🧪 Workshop
 
