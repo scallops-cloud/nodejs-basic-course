@@ -14,6 +14,7 @@ git clone git@github.com:scallops-cloud/nodejs-basic-course.git
 2. Checkout a new branch to work on, to avoid the conflict with the new workshop update. (You may use other branch name you prefer.)
 
 ```
+cd nodejs-basic-course
 git checkout -b exercise-work
 ```
 
