@@ -2,7 +2,7 @@
 
 ## Exercise:
 
-1. While preserving `w` option, add new option as in next exercises.
+1. While preserving `w` option, add new option as in 2. and 3.
 
 2. Add option read `r` to read the file content.
 
