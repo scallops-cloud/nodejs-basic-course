@@ -31,9 +31,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 /**
- * `upload.single("image")` is a middleware function that processes the file
- * upload for a single file where the field name is "image". This function runs
- * before the final function in the chain.
+ * `upload.single("image")` is a middleware function that return a handler to
+ * processes a single file.It looks for a file in the request body with the name
+ * "image". This function runs before the final function in the chain.
  */
 app.patch("/todos/:todoId/uploads", upload.single("image"), (req, res) => {
   const { filename } = req.file;

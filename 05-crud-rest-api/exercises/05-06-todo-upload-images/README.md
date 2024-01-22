@@ -1,63 +1,72 @@
-# Todo Upload Images
+# Todo API: Upload Image 🖼️
 
-## Objective:
+## Overview
 
-Understand how to use multer to upload images
-
-### File upload
-
-Web server file upload allows users to send files from their local machine to a
-web server. This is commonly used for functionalities like uploading profile
-pictures, attaching files to emails, or submitting documents.
-
-Here's a step-by-step explanation of how web server file upload works:
+In this exercise, we will add the ability to upload images to our Todo API.
 
 ```mermaid
 sequenceDiagram
-  participant Client
-  participant Server
-
-  Client->>Server: Send file upload request
-  Server->>Client: Respond with upload form
-  Client->>Server: Send file data
-
-  rect rgb(200, 200, 200)
-  note over Server: This is done by multer<br/>upload.single("image")
-  Server->>Server: Process file upload
-  Server->>Server: Save file to server
+  Actor P AS Postman
+  box Process uploading image
+    participant M AS upload middleware<br/>created by multer<br/>line24: upload = multer()
+    participant D AS Storage, /public folder
   end
-  Server->>Server: Perform additional operations
-  Server->>Client: Respond with file information
-  Client->>Client: Display uploaded file
+  participant A AS Todo API (app.js)
+
+  autonumber
+  P->>+M: PATCH /todos/1/uploads
+  M->>+D: Save image to /public folder<br/>app.js line13-23
+  D->>-M: Return filename and set it to req.file
+  M->>+A: Call /todos/:todoId/uploads handler
+  A->>A: Update todo imagePath to<br/>/uploads/${req.file}
+  A->>-P: Return response
 ```
 
-## Exercise:
+## Miscellanous
 
-1. Update Postman to have "Upload Todo Image" API
-2. Modify code in route `/todos/:todoId/uploads`
-3. Update todo imagePath
+### Express request handlers
 
-Request:
+Express request handlers are functions that have the following signature:
 
-```
-POST /todos/3/uploads
-```
-
-Request Body (use Postman Body > form-data > change key value to "File"):
-![Postman upload file](docs/postman-upload-file.png)
-
-Response
-
-```json
-{
-  "data": {
-    "id": 3,
-    "imagePath": "/uploads/5d5bed77-4126-4438-b57c-9b5961446f18.jpeg",
-  }
+```js
+function (req, res, next) {
+  // ...
 }
 ```
 
-## Documentation:
+A route handler can be a single function, or an array of functions. If it is an array of functions, each function in the array is called in order. 
 
-- https://expressjs.com/en/resources/middleware/multer.html
-- https://www.npmjs.com/package/uuid
+```js
+app.get('/todos', [
+  (req, res, next) => {/** handler 1 */},
+  (req, res, next) => {/** handler 2 */},
+])
+```
+
+### Multi-part Form Data
+
+Multi-part form data is a method of encoding data that is sent from a client to a server. It is often used when you need to send binary data, like the contents of a file, along with form data. This is the standard way to upload files to a server.
+
+In a multi-part form data request, the HTTP payload is divided into multiple parts, each with its own content type and data. Each part is separated by a unique boundary string. This allows different types of data to be sent in a single HTTP request.
+
+More information: https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest_API/Using_FormData_Objects
+
+### Arrow functions
+
+Arrow functions are a shorthand way of writing functions in JavaScript. They are often used as callback functions.
+
+```js
+// normal function
+function (req, res, next) {
+  // ...
+}
+
+// arrow function
+(req, res, next) => {
+  // ...
+}
+```
+
+One of the main different between arrow functions and normal functions is that arrow functions do not have their own `this` value.
+
+More information: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
