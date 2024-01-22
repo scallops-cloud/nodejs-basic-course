@@ -63,6 +63,19 @@ app.put("/todos/:todoId", (req, res) => {
   res.json({ data: updatedTodo });
 });
 
+app.patch("/todos/:todoId", (req, res) => {
+  const todoId = parseInt(req.params.todoId, 10);
+  const isDone = req.body.isDone;
+  const updatedTodo = updateTodo(todoId, { isDone });
+
+  if (!updatedTodo) {
+    res.status(404).json({ error: { message: "todo not found" } });
+    return;
+  }
+
+  res.json({ data: updatedTodo });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });

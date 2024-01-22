@@ -62,6 +62,18 @@ app.put("/todos/:todoId", (req, res) => {
   throw new Error("Not implemented");
 });
 
+app.patch("/todos/:todoId", (req, res) => {
+  /**
+   * 1. Get the `todoId` from req.params
+   * 2. Parse the `todoId` to integer
+   * 3. Read `isDone` from `req.body`
+   * 4. Call `updateTodo` with `todoId` and `isDone` attribute
+   * 5. If `updateTodo` returns `undefined`, return 404
+   * 6. Else, return the updated todo
+   */
+  throw new Error("Not implemented");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
