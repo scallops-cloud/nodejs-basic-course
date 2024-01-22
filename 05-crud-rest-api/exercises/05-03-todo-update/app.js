@@ -51,26 +51,34 @@ app.post("/todos", (req, res) => {
 });
 
 app.put("/todos/:todoId", (req, res) => {
-  /**
-   * 1. Get the `todoId` from req.params
-   * 2. Parse the `todoId` to integer
-   * 3. Get `title` and `description` from req.body
-   * 4. Update todo with `updateTodo`
-   * 5. If the return from updateTodo is null, response error
-   * 6. Otherwise, response the updatedTodo
-   */
+  const id = parseInt(req.params.todoId, 10);
+
+  // Read title and description from req.body
+  // const { title, description, isDone } = ...
+
+  // Update todo with `updateTodo`
+  // Hint: updateTodo accepts 2 arguments, id and attributes
+  //
+  // const updatedTodo = updateTodo(...);
+
+  // Return the updated todo
+  // res.status(200).json({ data: updatedTodo });
+
   throw new Error("Not implemented");
 });
 
 app.patch("/todos/:todoId", (req, res) => {
-  /**
-   * 1. Get the `todoId` from req.params
-   * 2. Parse the `todoId` to integer
-   * 3. Read `isDone` from `req.body`
-   * 4. Call `updateTodo` with `todoId` and `isDone` attribute
-   * 5. If `updateTodo` returns `undefined`, return 404
-   * 6. Else, return the updated todo
-   */
+  const id = parseInt(req.params.todoId, 10);
+
+  // Read request body and store it in `attributes` variable
+  // const attributes = ...
+
+  // Update todo with `updateTodo`
+  // const updatedTodo = ...
+
+  // Return the updated todo
+  // res.status(200).json({ data: updatedTodo });
+
   throw new Error("Not implemented");
 });
 
