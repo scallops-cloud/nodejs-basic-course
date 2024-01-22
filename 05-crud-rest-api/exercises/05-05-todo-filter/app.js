@@ -14,12 +14,32 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/todos", (req, res) => {
-  /**
-   * 1. Get the query parameter from `req`
-   * 2. Build the filter function based on the query parameter
-   * 3. Pass the filter function to `listTodo`
-   */
-  const todos = listTodo(/* put filter functions here */);
+  const query = req.query;
+  const filters = Object.entries(query).map(([key, value]) => {
+    switch (key) {
+      // compare todo.id with the object's value based on the key
+      case "id":
+        return (todo) => {
+          // Hint: use parseInt() to convert string to number
+        };
+      case "isDone":
+        return (todo) => {
+          // Hint: use === to compare boolean values
+          // This is a tricky one, because the query string is a string,
+        };
+      case "title":
+        return (todo) => {
+          // Hint: use includes() to check if the string includes the value
+        };
+      case "description":
+        return (todo) => {
+          // Hint: use includes() to check if the string includes the value
+        };
+      default:
+        return () => true;
+    }
+  });
+  const todos = listTodo(filters);
   res.json({ data: todos });
 });
 
