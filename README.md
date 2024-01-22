@@ -75,7 +75,8 @@ https://github.com/scallops-cloud/nodejs-basic-course/tree/main/05-crud-rest-api
 #### 📽️ Slides:
 
 - [AUTH-1: Encryption & Hashing](https://snappify.com/view/8923e6d8-59de-4941-b4f6-eab8bcce45fe)
-- [AUTH-2: Intro to Express.js Authentication](https://snappify.com/view/0bd6802a-c2b2-4b1b-890d-385f4fc9fe32)
+- [AUTH-2: Intro to Express.js Authentication](https://snappify.com/view/0bd6802a-c2b2-4b1b-890d-385f4fc9fe32) for exercise 06-01 & 06-02
+- [AUTH-3: JWT & Protected Routes](https://snappify.com/view/b53fd2ec-082a-457f-b65e-234c2b09ef6a) for exercise 06-03 & 06-04
 
 #### 🧪 Workshop
 
