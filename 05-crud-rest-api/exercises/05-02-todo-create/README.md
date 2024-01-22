@@ -13,6 +13,10 @@ sequenceDiagram
    Todo API->>-Postman: Todo[1]
 ```
 
+## Challenge
+
+Prevent the client from creating a todo with an empty title and description.
+
 ## Data Model
 
 In this exercise, we will use the following data model located in `05-99-model/todo.mjs`.
