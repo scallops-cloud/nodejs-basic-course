@@ -68,22 +68,28 @@ app.post("/todos", (req, res) => {
 
 app.put("/todos/:todoId", (req, res) => {
   const todoId = parseInt(req.params.todoId, 10);
-  const attributes = req.body;
-  const updatedTodo = updateTodo(todoId, attributes);
-
-  if (!updatedTodo) {
+  const todo = findTodo(todoId);
+  if (!todo) {
     res.status(404).json({ error: { message: "todo not found" } });
     return;
   }
+
+  const defaultAttributes = {
+    title: "",
+    description: "",
+    isDone: false,
+    imagePath: undefined,
+  };
+  const updateAttributes = { ...defaultAttributes, ...req.body };
+  const updatedTodo = updateTodo(todo.id, updateAttributes);
 
   res.json({ data: updatedTodo });
 });
 
 app.patch("/todos/:todoId", (req, res) => {
   const todoId = parseInt(req.params.todoId, 10);
-  const isDone = req.body.isDone;
-  const updatedTodo = updateTodo(todoId, { isDone });
-
+  const reqBody = req.body;
+  const updatedTodo = updateTodo(todoId, reqBody);
   if (!updatedTodo) {
     res.status(404).json({ error: { message: "todo not found" } });
     return;
