@@ -6,21 +6,22 @@ In this exercise, we will create a new todo using Postman.
 
 ```mermaid
 sequenceDiagram
-   box Exercise
-      Actor P AS Postman
-      participant A AS Todo API (app.js)
-   end
-   box Data layer
-      participant M AS Model (todo.mjs)
-      participant D AS Storage<br/>(line 19: const todoDatabase)
-   end
+  box Exercise
+   Actor P AS Postman
+   participant A AS Todo API (app.js)
+  end
+  box Data layer
+   participant M AS Model (todo.mjs)
+   participant D AS Storage<br/>(line 19: const todoDatabase)
+  end
 
-   P->>+A: POST /todos
-   A->>+M: createTodo
-   M->>+D: insert
-   D->>-M: Todo[1]
-   M->>-A: Todo[1]
-   A->>-P: Todo[1]
+  autonumber
+  P->>+A: POST /todos
+  A->>+M: createTodo
+  M->>+D: insert
+  D->>-M: Todo[1]
+  M->>-A: Todo[1]
+  A->>-P: Todo[1]
 ```
 
 ## Challenge
