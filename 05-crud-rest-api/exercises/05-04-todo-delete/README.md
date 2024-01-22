@@ -1,33 +1,44 @@
-# Todo DELETE API for deleting todo
+# Todo API: 👋 Todo
 
-## Objective:
+## Overview
 
-- Understand the DELETE API
+Understand how we construct a DELETE request and perform a DELETE operation.
 
-## Exercise:
+```mermaid
+sequenceDiagram
+  box Exercise
+    Actor P AS Postman
+    participant A AS Todo API (app.js)
+  end
+  box Data layer
+    participant M AS Model (todo.mjs)
+    participant D AS Storage<br/>(line 19: const todoDatabase)
+  end
 
-- Update Postman to have DELETE method
-- Implement DELETE in router using `deleteTodo` from model
-- Handle error in case of the todo not found.
+  P->>+A: DELETE /todos/2
 
-Request:
-
-```
-DELETE /todos/2
-```
-
-Response:
-
-```json
-{
-  "data": {
-    "id": 2,
-    "title": "Go to school",
-    "description": ""
-  }
-}
+  A->>+M: deleteTodo
+  M->>+D: delete
+  D->>-M: Todo[2]
+  M->>-A: Todo[2] Deleted
+  A->>-P: 200 ok
 ```
 
-## Link to slide:
+## Miscellanenous
 
-https://snappify.com/view/888e678f-01de-43fd-a79c-e92ff9a07d97
+### Deleting a JavaScript object property
+
+In JavaScript, we can delete a property from an object using the `delete` keyword.
+
+```js
+const todo = {
+  id: 1,
+  title: 'Buy milk',
+  completed: false,
+};
+
+delete todo.completed;
+
+console.log(todo);
+// { id: 1, title: 'Buy milk' }
+```
