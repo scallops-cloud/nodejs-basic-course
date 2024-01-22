@@ -1,44 +1,24 @@
-# Todo API: Description field
+# Todo API: Create
 
-## Objective:
+## Overview
 
-Understand the flow of building REST API with Postman
+In this exercise, we will create a new todo using Postman.
 
-## Exercises:
+```mermaid
+sequenceDiagram
+   Actor Postman
+   participant Todo API
 
-1. Update Postman "Create Todo" to have title and description
-2. Test Postman to see the result
-3. Implement create todo handler in `app.js`
-4. Try Postman "Create Todo" to see the result
-5. Check if the Postman "List Todos" have newly added todo
-
-Request:
-
-```
-POST /todos
+   Postman->>+Todo API: POST /todos
+   Todo API->>-Postman: Todo[1]
 ```
 
-Request Body:
+## Data Model
 
-```json
-{
-  "title": "Shopping for the food",
-  "description": "at BigC"
-}
-```
+In this exercise, we will use the following data model located in `05-99-model/todo.mjs`.
 
-Response:
+The Todo model acts as an API to the database. It provides methods to create, read, update and delete todos.
 
-```json
-{
-  "data": {
-    "id": 4,
-    "title": "Shopping for the food",
-    "description": "at BigC"
-  }
-}
-```
+## ECMAScript module (mjs)
 
-## Link to slide:
-
-https://snappify.com/view/888e678f-01de-43fd-a79c-e92ff9a07d97
+The `mjs` extension is used to denote a JavaScript module. It is a new feature introduced in Node.js 12. It allows us to use the `import` and `export` syntax.

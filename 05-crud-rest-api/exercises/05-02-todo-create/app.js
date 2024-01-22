@@ -25,13 +25,16 @@ app.get("/todos/:todoId", (req, res) => {
 });
 
 app.post("/todos", (req, res) => {
-  /**
-   * 1. Get the `title` and `description` from req.body
-   * 2. Validate the `title` length, if more than 30 characters, response error
-   * 3. Validate the `description` length, if more than 100 characters, response error
-   * 4. Create new todo with `createTodo`
-   * 5. Response the created todo
-   */
+  const { title, description } = req.body;
+
+  // Create a new todo using the `createTodo` function (imported from the model, line: 2)
+  // const todo = ...
+
+  // Return the newly created todo with a 201 status code
+  // res.status(201).json({
+  //   data: todo,
+  // });
+
   throw new Error("Not implemented");
 });
 
