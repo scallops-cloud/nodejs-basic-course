@@ -17,7 +17,7 @@ sequenceDiagram
 
 Prevent the client from creating a todo with an empty title and description.
 
-## Remarks
+## Miscellaneous
 
 ### Data Model
 
