@@ -127,3 +127,38 @@ git checkout exercise-work
 ```sh
 git merge main
 ```
+
+## How to push working branch to your own repository?
+
+1. Fork this repository to your own account.
+
+2. Check the remote repository.
+
+```sh
+git remote -v
+```
+
+Expected result:
+
+```sh
+origin  git@github.com:scallops-cloud/nodejs-basic-course.git (fetch)
+origin  git@github.com:scallops-cloud/nodejs-basic-course.git (push)
+```
+
+3. Add your own repository as a remote repository.
+
+```sh
+git remote add myrepo YOUR_GITHUB_REPO_URL
+```
+
+For example:
+
+```sh
+git remote add myrepo git@github.com:turboza/nodejs-basic-course.git
+```
+
+4. Push the working branch to your own repository.
+
+```sh
+git push myrepo exercise-work
+```
