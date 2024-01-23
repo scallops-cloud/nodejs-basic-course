@@ -4,6 +4,12 @@
 
 Understand the implementation and flow of JWT authentication middleware
 
+## Setup
+
+1. Copy `.env` from previous exercise (06-03) to `.../06-04-protected-routes/.env`.
+
+2. Test `/signup` and `/login` with Postman.
+
 ## Exercises:
 
 1. Use Postman to access `/public`, `/profile` and `/secret` without a token.
@@ -23,6 +29,11 @@ Understand the implementation and flow of JWT authentication middleware
 5. Use Postman (with a token) to access `/public`, `/profile` and `/secret` again.
 
    - 5.1. What is the result? How is it different from 4.1?
+
+6. Login and get the token from `/login`.
+
+   - 6.1 Add token to Postman `Auth`, `type: Bearer Token`.
+   - 6.1. Use the token to access `/profile` and `/secret` again.
 
 ## Challenges:
 

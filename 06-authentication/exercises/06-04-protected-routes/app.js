@@ -6,6 +6,7 @@ import jwt from "jsonwebtoken";
 import "dotenv/config.js";
 
 import { User } from "./models/user.js";
+import { auth } from "./middlewares/auth.js";
 
 const app = express();
 const port = 8000;
